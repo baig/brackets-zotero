@@ -1,0 +1,21 @@
+{
+    "name": "brackets-zotero",
+    "version": "0.0.1",
+    "title": "Zotero Integration",
+    "description": "Add In-Text Citations and Manage Bibliographies in Scholarly Markdown using Zotero",
+    "homepage": "https://github.com/baig/brackets-zotero",
+    "engines": {
+        "brackets": ">=0.38"
+    },
+    "author": "Wasif Hasan Baig <pr.wasif@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "brackets",
+        "zotero",
+        "citation",
+        "bibliography"
+    ],
+    "i18n": [
+        "en"
+    ]
+}

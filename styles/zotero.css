@@ -1,0 +1,12 @@
+#zotero-panel input[type="text"] {
+    margin-bottom: 0px;
+}
+
+#zotero-search-results > td {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#zotero-toolbar-icon {
+    background: url("icons/zotero_24x24x32.png") no-repeat 0 0;
+}

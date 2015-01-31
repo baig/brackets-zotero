@@ -1,0 +1,7 @@
+{
+    "itemsWithBibtexKeyOnly": true,
+    "bibtexPrefix": "bibtex:",
+    "bibFileName": "refs.bib",
+    "docTypesToScanForCitationKeys": ["txt", "md"],
+    "refreshInterval": 10000
+}
