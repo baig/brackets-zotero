@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brackets Zotero Integration Plugin</title>
+	<meta name="keywords" content="Adobe Brackets, Zotero, plugin, extension">
+	<meta name="description" content="Add citations from Zotero library and manage bibliographies in Scholarly Markdown in Brackets.">
+  <link rel="stylesheet" href="combo.css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+  <div id="main">
+
+    <nav><ul>
+      
+        
+        <li class="p-intro"><a href="#intro">Home</a></li>
+      
+        
+        <li class="p-demo"><a href="#demo">Demo</a></li>
+      
+        
+        <li class="p-features"><a href="#features">Features</a></li>
+      
+        
+        <li class="p-install"><a href="#install">Installation</a></li>
+      
+        
+        <li class="p-usage"><a href="#usage">Usage</a></li>
+      
+        
+        <li class="p-contribute"><a href="#contribute">Contribute</a></li>
+      
+        
+        <li class="p-acknowledge"><a href="#acknowledge">Acknowledgments</a></li>
+      
+        
+        <li class="p-social"><a href="#social">Share</a></li>
+      
+    </ul></nav>
+
+    
+      
+      <div id="intro" class="section p-intro">
+        
+        <div class="container center">
+          <h1 id="brackets-zotero-integration-extension">Brackets Zotero Integration Extension</h1>
+
+<p><img src="../img/zotero_48x48x32.png" alt="Zotero Icon" />
+<span class="fa-stack" style="font-size:50px">
+  <i class="fa fa-plus"></i>
+</span>
+<img src="../img/brackets_48x48.png" alt="Brackets Icon" /></p>
+
+<p>Brings the power of <a href="https://www.zotero.org/">Zotero</a> to <a href="http://brackets.io/">Adobe Brackets</a></p>
+
+<div class="github">
+    <iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;repo=brackets-zotero&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
+    <iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;repo=brackets-zotero&amp;type=watch&amp;count=true&amp;v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+    <iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;repo=brackets-zotero&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+</div>
+
+
+        </div>
+      </div>
+    
+      
+      <div id="demo" class="section p-demo">
+        
+        <div class="container center">
+          <h1 id="animated-gif-demo">Animated GIF Demo</h1>
+
+<p>If <a href="http://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words">a picture is worth a thousand words</a> then surely an <strong>animated GIF will be worth a thousand pictures</strong>.</p>
+
+<p class="gif"><img src="../img/demo.gif" alt="Brackets Zotero Plugin Animated GIF Demo" /></p>
+
+
+        </div>
+      </div>
+    
+      
+      <div id="features" class="section p-features">
+        
+        <div class="container center">
+          <h1 id="main-features">Features</h1>
+
+<p>Scans the document for in-text citations (BibTeX keys)</p>
+
+<p>Search your Zotero Library to select items to reference</p>
+
+<p>Insert Citations in your <a href="http://scholarlymarkdown.com/">Scholarly</a> <a href="http://blog.martinfenner.org/2013/06/17/what-is-scholarly-markdown/">Markdown</a> documents</p>
+
+<p>Insert Bibliography in the document</p>
+
+<p>Generate Bibliography in a separate BibTeX File</p>
+
+<p><br /></p>
+
+<h3 id="planned">Planned</h3>
+
+<p>Project-wide Bib File Management</p>
+
+
+        </div>
+      </div>
+    
+      
+      <div id="install" class="section p-install">
+        
+        <div class="container center">
+          <h1 id="installation-instructions">Installation</h1>
+
+<p>Scans the document for in-text citations (BibTeX keys)</p>
+
+<p>Search your Zotero Library to select items to reference</p>
+
+<p>Insert Citations in your <a href="http://scholarlymarkdown.com/">Scholarly</a> <a href="http://blog.martinfenner.org/2013/06/17/what-is-scholarly-markdown/">Markdown</a> documents</p>
+
+<p>Insert Bibliography in the document</p>
+
+<p>Generate Bibliography in a separate BibTeX File</p>
+
+
+        </div>
+      </div>
+    
+      
+      <div id="usage" class="section p-usage">
+        
+        <div class="container center">
+          <h1 id="how-to-use">Usage</h1>
+
+<p>Download a custom Zotero Better BibTeX which provides search capabilities.</p>
+
+<p>Enable Export on HTTPs in Better BibTex preferences.</p>
+
+<p>Generate bibtex keys for all zotero items. If no bibtex key in “extra” field, the extension ill throw an error. See this for guide for making unique bibtex keys.</p>
+
+        </div>
+      </div>
+    
+      
+      <div id="contribute" class="section p-contribute">
+        
+        <div class="container center">
+          <h1 id="contributing">Contributing</h1>
+
+<p>Scans the document for in-text citations (BibTeX keys)</p>
+
+<p>Search your Zotero Library to select items to reference</p>
+
+<p>Insert Citations in your <a href="http://scholarlymarkdown.com/">Scholarly</a> <a href="http://blog.martinfenner.org/2013/06/17/what-is-scholarly-markdown/">Markdown</a> documents</p>
+
+<p>Insert Bibliography in the document</p>
+
+<p>Generate Bibliography in a separate BibTeX File</p>
+
+
+        </div>
+      </div>
+    
+      
+      <div id="acknowledge" class="section p-acknowledge">
+        
+        <div class="container center">
+          <h1 id="acknowledgments">Acknowledgments</h1>
+
+<p>Special thanks to the man behind <a href="https://zotplus.github.io/better-bibtex/index.html">Better Bib(La)TeX</a> for swift merging of the proposed
+functionality that this plugin leverages and greatly improving and optimizing the
+contributed code.</p>
+
+
+        </div>
+      </div>
+    
+      
+      <div id="social" class="section p-social">
+        
+        <div class="container center">
+          <h1 id="spread-the-love">Spread the Love</h1>
+
+<p><br /></p>
+
+<div class="social">
+    
+<!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-size="tall" data-width="300" data-href="http://baig.github.io/brackets-zotero/"></div>
+
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://baig.github.io/brackets-zotero/" data-text="Zotero integration with Brackets" data-via="_wbaig" data-hashtags="BracketsZotero" data-count="vertical">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+<div class="fb-like" data-href="http://baig.github.io/brackets-zotero/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+<div class="fb-share-button" data-href="http://baig.github.io/brackets-zotero/" data-layout="box_count"></div>
+
+
+</div>
+
+        </div>
+      </div>
+    
+
+
+    <div id="footer" class="section text-white">
+      <div class="container">
+        
+        
+<p>© 2015 <a href="https://twitter.com/_wbaig">Wasif Hasan Baig</a></p>
+
+<!--
+<span>
+<a class="twitter-follow-button" href="https://twitter.com/_wbaig" data-show-count="false" data-show-screen-name="true" data-lang="en">Follow</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</span>
+-->
+
+<p><br /></p>
+
+<iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;type=follow" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+
+      </div>
+    </div>
+  </div>
+
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-51047247-11']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  <!-- Put this right before the </body> closing tag -->
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="site.js"></script>
+</html>

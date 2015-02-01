@@ -1,0 +1,36 @@
+body {
+    font-family: "Open Sans";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {}
+
+.gif > img {
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(197, 195, 195, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(197, 195, 195, 0.75);
+    box-shadow: 10px 10px 5px 0px rgba(197, 195, 195, 0.75);
+}
+
+.github {
+    padding: 25px 0 0 25px;
+}
+
+.social > li {
+    padding: 10px;
+}
+
+.social > .fb-like,.fb-share-button {
+    top: -6px;
+}
+
+.g-plusone, .twitter-share-button, .fb-like, .fb-share-button {
+    margin: 0 10px 0 10px;
+}
+
+.g-plusone {
+    margin 0 15px 0 15px;
+}

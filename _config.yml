@@ -1,0 +1,44 @@
+---
+
+port: 4000
+host: 0.0.0.0
+safe: false
+
+
+### site serving configuration ###
+exclude: [CNAME, README.md, .gitignore]
+permalink: / ## disables post output
+timezone: null
+lsi: false
+markdown: kramdown
+highlighter: pygments
+font: "'Open Sans', sans-serif"
+
+
+### content configuration ###
+title:       "Brackets Zotero Integration Plugin"
+keywords:    "Adobe Brackets, Zotero, plugin, extension"
+description: "Add citations from Zotero library and manage bibliographies in Scholarly Markdown in Brackets."
+source_link: "http://baig.github.io/brackets-zotero/"
+twitter_url: "https://twitter.com/_wbaig"
+github_url: "https://github.com/baig"
+github_username: baig
+favicon:     "img/favicon.ico"
+touch_icon:  "img/apple-touch-icon.png"
+google_analytics_key: UA-51047247-11 ## put YOUR key here to enable tracking! (blank to disable)
+
+### Social Integration
+facebook: yes
+google_plus: yes
+twitter: yes
+github: no
+
+### template colors, used site-wide via css ###
+colors:
+  black:     '#111111'
+  white:     '#f8f8f8'
+  blue:      '#49a7e9'
+  green:     '#9bcf2f'
+  purple:    '#c869bf'
+  orange:    '#fab125'
+  turquoise: '#0fbfcf'
