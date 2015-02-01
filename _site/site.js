@@ -8,6 +8,7 @@ $.extend($.easing, {
     }
 });
 
+// NavScroller
 (function ($) {
 
     var settings;
@@ -76,7 +77,85 @@ $.extend($.easing, {
 })(jQuery);
 
 
+// Responsive Nav
+(function ($) {
+    
+    var nav = null;
+    var lisWidth = 0;
+    var lisHeight = 0;
+    var navHeight = 0;
+    var liCount = 0;
+    var navFixed = false;
+    
+    $.fn.responsiveNav = function (options) {
+        nav = this
+        
+        this.find('li').each( function() {
+            liCount += 1
+            navHeight = $(this).outerHeight()
+            lisWidth += $(this).width()
+        })
+        
+        updateNav()
+        
+        $(window).on('resize orientationChanged', updateNav)
+    };
+    
+    function updateNav() {
+        if (lisWidth > window.innerWidth) {
+            addClassToLis(nav)
+            attachClickListener(nav);
+        } else {
+            removeClassFromLis(nav)
+            detachClickListener(nav);
+        }
+    }
+    
+    function addClassToLis(nav) {
+        nav.find('li').each( function() {
+            $(this).addClass("nav-collapse")
+        })
+        
+        if (!navFixed) {
+            var $ul = nav.find('ul')
+
+            var active = $ul.find('.active').text()
+            if (!active) active = $ul.find('li:first').text()
+
+            nav.find('ul').append('<li><a href="#menu">' + active + '   <span id="menu">&#x2261;</span></a></li>')
+            nav.css("position", "fixed")
+            nav.css("top", "-" + ((liCount * navHeight) + 3) + "px")
+        }
+        
+        navFixed = true
+    }
+    
+    function removeClassFromLis(nav) {
+        nav.find('li').each( function() {
+            console.log($(this))
+            $(this).removeClass("nav-collapse")
+        })
+        nav.css("position", "static")
+    }
+
+    function attachClickListener(nav) {
+        console.log("NAV ATTACHED")
+        nav.on('click', function (e) {
+            console.log("NAV CLICKED")
+        });
+    }
+    
+    function detachClickListener(nav) {
+        console.log("NAV REMOVED")
+        nav.off('click')
+    }
+
+})(jQuery);
+
+
 $(document).ready(function () {
+    
+    $('nav').responsiveNav();
 
     $('nav li a').navScroller();
 

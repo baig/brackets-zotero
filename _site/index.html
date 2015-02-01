@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="combo.css">
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<!--    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
@@ -53,7 +55,8 @@
         
         <li class="p-social"><a href="#social">Share</a></li>
       
-    </ul></nav>
+    </ul>
+        </nav>
 
     
       
@@ -62,13 +65,15 @@
         <div class="container center">
           <h1 id="brackets-zotero-integration-extension">Brackets Zotero Integration Extension</h1>
 
-<p><img src="../img/zotero_48x48x32.png" alt="Zotero Icon" />
+<p><img src="img/zotero_48x48x32.png" alt="Zotero Icon" />
 <span class="fa-stack" style="font-size:50px">
   <i class="fa fa-plus"></i>
 </span>
-<img src="../img/brackets_48x48.png" alt="Brackets Icon" /></p>
+<img src="img/brackets_48x48.png" alt="Brackets Icon" /></p>
 
 <p>Brings the power of <a href="https://www.zotero.org/">Zotero</a> to <a href="http://brackets.io/">Adobe Brackets</a></p>
+
+<p>Built for <a href="http://scholarlymarkdown.com/">Scholarly Markdown</a> + <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> / <a href="http://scholdoc.scholarlymarkdown.com/">Scholdoc</a> + <a href="http://www.latex-project.org/">LaTeX</a> workflow </p>
 
 <div class="github">
     <iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;repo=brackets-zotero&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
@@ -86,9 +91,11 @@
         <div class="container center">
           <h1 id="animated-gif-demo">Animated GIF Demo</h1>
 
-<p>If <a href="http://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words">a picture is worth a thousand words</a> then surely an <strong>animated GIF will be worth a thousand pictures</strong>.</p>
+<p>If <a href="http://en.wikipedia.org/wiki/A_picture_is_worth_a_thousand_words">a <strong>(still)</strong> picture is worth a thousand words</a> then surely <em>an (<strong>animated</strong>) GIF will be worth a thousand pictures</em>.</p>
 
-<p class="gif"><img src="../img/demo.gif" alt="Brackets Zotero Plugin Animated GIF Demo" /></p>
+<p>See the extension in action!</p>
+
+<p class="gif"><img src="img/demo.gif" alt="Brackets Zotero Plugin Animated GIF Demo" /></p>
 
 
         </div>
@@ -98,7 +105,7 @@
       <div id="features" class="section p-features">
         
         <div class="container center">
-          <h1 id="main-features">Features</h1>
+          <h1 id="main-features">Main Features</h1>
 
 <p>Scans the document for in-text citations (BibTeX keys)</p>
 
@@ -112,7 +119,7 @@
 
 <p><br /></p>
 
-<h3 id="planned">Planned</h3>
+<h2 id="planned">Planned</h2>
 
 <p>Project-wide Bib File Management</p>
 
@@ -152,6 +159,14 @@
 
 <p>Generate bibtex keys for all zotero items. If no bibtex key in “extra” field, the extension ill throw an error. See this for guide for making unique bibtex keys.</p>
 
+<h2 id="generate-bibtex-keys">Generate BibTeX Keys</h2>
+
+<p>It’s important that BibTeX keys are unique because they link your Sholarly work to the Reference database.
+By default BBT generates BibTeX keys with [auth][year] format.
+<a href="https://zotplus.github.io/better-bibtex/index.html">BBT</a> gives you complete control over defining your own key format.
+Go through the <strong>Configurable citekey generator</strong> section on the <a href="https://zotplus.github.io/better-bibtex/Citation-Keys.html">Citation Keys</a> page to learn how to configure BBT to generate </p>
+
+
         </div>
       </div>
     
@@ -161,15 +176,7 @@
         <div class="container center">
           <h1 id="contributing">Contributing</h1>
 
-<p>Scans the document for in-text citations (BibTeX keys)</p>
-
-<p>Search your Zotero Library to select items to reference</p>
-
-<p>Insert Citations in your <a href="http://scholarlymarkdown.com/">Scholarly</a> <a href="http://blog.martinfenner.org/2013/06/17/what-is-scholarly-markdown/">Markdown</a> documents</p>
-
-<p>Insert Bibliography in the document</p>
-
-<p>Generate Bibliography in a separate BibTeX File</p>
+<p>Head over to the projects wiki for guide to contributing.</p>
 
 
         </div>
@@ -193,7 +200,7 @@ contributed code.</p>
       <div id="social" class="section p-social">
         
         <div class="container center">
-          <h1 id="spread-the-love">Spread the Love</h1>
+          <h1 id="share-the-word">Share the Word…</h1>
 
 <p><br /></p>
 
@@ -222,7 +229,7 @@ contributed code.</p>
       <div class="container">
         
         
-<p>© 2015 <a href="https://twitter.com/_wbaig">Wasif Hasan Baig</a></p>
+<p>Copyright © 2015 | <a href="https://twitter.com/_wbaig">Wasif Hasan Baig</a></p>
 
 <!--
 <span>
@@ -231,9 +238,13 @@ contributed code.</p>
 </span>
 -->
 
+<iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;type=follow" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+<p>Source code is released under <a href="http://opensource.org/licenses/MIT">MIT</a> License</p>
+
 <p><br /></p>
 
-<iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;type=follow" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" rel="dct:type">work</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/baig" property="cc:attributionName" rel="cc:attributionURL">Wasif Hasan Baig</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 
 
       </div>

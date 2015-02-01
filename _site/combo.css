@@ -618,7 +618,7 @@ hr {
   padding: 0 4%;
 }
 .container p, .container ol, .container ul {
-  font-size: 17px;
+/*  font-size: 17px;*/
   padding: 0 5%;
 }
 .container ol, .container ul { padding: 0 8%; }
@@ -733,7 +733,11 @@ nav ul li:hover, nav ul li.active {
   background-color:#2e2e2e;
   background-image:none;
 }
-#footer .container p { font-size:13px; margin:0; }
+#footer .container p {
+    font-size:13px;
+    margin:0;
+    line-height: 1.5em;
+}
 
 .subtlecircle {
   text-align:center;
@@ -763,7 +767,7 @@ nav ul li:hover, nav ul li.active {
 }
 
 .sectiondivider .fa-stack {
-  font-size: 130px;
+/*  font-size: 130px;*/
   position: static;
   margin-top: -8px;
 }
@@ -905,10 +909,17 @@ nav ul li:hover, nav ul li.active {
 }
 
 body {
-    font-family: "Open Sans";
+    /*    font-family: "Open Sans";*/
+    
+    font-family: 'Fira Sans', sans-serif;
+    font-size: large;
+    line-height: 2.5em;
 }
 
-h1,
+h1 {
+    font-family: 'Open Sans', sans-serif;
+}
+
 h2,
 h3,
 h4,
@@ -929,14 +940,28 @@ h6 {}
     padding: 10px;
 }
 
-.social > .fb-like,.fb-share-button {
+.social > .fb-like,
+.fb-share-button {
     top: -6px;
 }
 
-.g-plusone, .twitter-share-button, .fb-like, .fb-share-button {
+.g-plusone,
+.twitter-share-button,
+.fb-like,
+.fb-share-button {
     margin: 0 10px 0 10px;
 }
 
 .g-plusone {
     margin 0 15px 0 15px;
+}
+
+.nav-collapse {
+    display: block;
+}
+
+#menu {
+    position: fixed;
+    right: 0;
+    margin-right: 20px;
 }

@@ -1,8 +1,15 @@
 body {
-    font-family: "Open Sans";
+    /*    font-family: "Open Sans";*/
+    
+    font-family: 'Fira Sans', sans-serif;
+    font-size: large;
+    line-height: 2.5em;
 }
 
-h1,
+h1 {
+    font-family: 'Open Sans', sans-serif;
+}
+
 h2,
 h3,
 h4,
@@ -23,14 +30,28 @@ h6 {}
     padding: 10px;
 }
 
-.social > .fb-like,.fb-share-button {
+.social > .fb-like,
+.fb-share-button {
     top: -6px;
 }
 
-.g-plusone, .twitter-share-button, .fb-like, .fb-share-button {
+.g-plusone,
+.twitter-share-button,
+.fb-like,
+.fb-share-button {
     margin: 0 10px 0 10px;
 }
 
 .g-plusone {
     margin 0 15px 0 15px;
+}
+
+.nav-collapse {
+    display: block;
+}
+
+#menu {
+    position: fixed;
+    right: 0;
+    margin-right: 20px;
 }
