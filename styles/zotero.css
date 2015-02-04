@@ -8,5 +8,9 @@
 }
 
 #zotero-toolbar-icon {
-    background: url("icons/zotero_24x24x32.png") no-repeat 0 0;
+    background: url(icons/brackets-zotero-icon.svg);
+}
+
+#zotero-toolbar-icon.active {
+    background-position: 0 -48px !important;
 }
