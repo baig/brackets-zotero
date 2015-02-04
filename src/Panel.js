@@ -16,6 +16,8 @@ define(function (require, exports, module) {
     // HTML Templates
     var SearchModelBarTemplate = require("text!../htmlContent/zotero-panel.html");
     var SearchResultListTemplate = require("text!../htmlContent/zotero-search-results.html");
+    
+    var $icon;
 
     
     function _toggleZoteroPanel(show) {
@@ -33,6 +35,8 @@ define(function (require, exports, module) {
         Panel.panel.show()
         // focus on query field on panel show
         $(C.UI_SEARCH_INPUT).focus()
+        // Add `active` class to zotero icon
+        $icon.addClass('active')
         // Toogle visibility flag
         Panel.visible = !Panel.visible
         // Triggering event that the panel is visible
@@ -46,6 +50,8 @@ define(function (require, exports, module) {
         _clearSearchField()
             // clear result list
         _clearItems();
+        // Remove `active` class to zotero icon
+        $icon.removeClass('active')
 
         // DNBH
         // EditorManager.off("activeEditorChange")
@@ -122,9 +128,8 @@ define(function (require, exports, module) {
         var renderedTemplate = $( Mustache.render( SearchModelBarTemplate, {S: S} ) )
         this.panel = WorkspaceManager.createBottomPanel("zoteroplugin.library.search", renderedTemplate, 300)
         
-        // Displaying icon in the Project Panel
-        var $icon = $("<a id='zotero-toolbar-icon' href='#'></a>").appendTo($("#main-toolbar .buttons"));
-        // 
+        // Displaying icon in the Project Panel and attach `click` handler
+        $icon = $("<a id='zotero-toolbar-icon' href='#'></a>").appendTo($("#main-toolbar .buttons"));
         $icon.on("click", function () { CommandManager.execute(C.CMD_ID_TOGGLE_PANEL) })
         
         var $panel = this.panel.$panel
