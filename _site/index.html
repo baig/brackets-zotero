@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Brackets Zotero Integration Plugin</title>
+  <title>Brackets Zotero Integration Extension (Website)</title>
 	<meta name="keywords" content="Adobe Brackets, Zotero, plugin, extension">
 	<meta name="description" content="Add citations from Zotero library and manage bibliographies in Scholarly Markdown in Brackets.">
   <link rel="stylesheet" href="combo.css">
@@ -41,10 +41,7 @@
         <li class="p-features"><a href="#features">Features</a></li>
       
         
-        <li class="p-install"><a href="#install">Installation</a></li>
-      
-        
-        <li class="p-usage"><a href="#usage">Usage</a></li>
+        <li class="p-install-use"><a href="#install-use">Install & Use</a></li>
       
         
         <li class="p-contribute"><a href="#contribute">Contribute</a></li>
@@ -73,7 +70,9 @@
 </span>
 <img src="img/brackets_48x48.png" alt="Brackets Icon" /></p>
 
-<p>Designed to support <a href="http://scholarlymarkdown.com/">Scholarly Markdown</a> + <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> / <a href="http://scholdoc.scholarlymarkdown.com/">Scholdoc</a> + <a href="http://www.latex-project.org/">LaTeX</a> workflow </p>
+<p>Designed to support <a href="http://scholarlymarkdown.com/">Scholarly Markdown</a> + <a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> / <a href="http://scholdoc.scholarlymarkdown.com/">Scholdoc</a> + <a href="http://www.latex-project.org/">LaTeX</a> workflow</p>
+
+<p>Available in <a href="https://brackets-registry.aboutweb.com/">Brackets Extension Registry</a></p>
 
 <div class="github">
     <iframe src="https://ghbtns.com/github-btn.html?user=baig&amp;repo=brackets-zotero&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
@@ -117,54 +116,27 @@
 
 <p>Generate Bibliography in a separate BibTeX File</p>
 
-<p><br /></p>
-
-<h2 id="planned">Planned</h2>
-
-<p>Project-wide Bib File Management</p>
-
 
         </div>
       </div>
     
       
-      <div id="install" class="section p-install">
+      <div id="install-use" class="section p-install-use">
         
         <div class="container center">
-          <h1 id="installation-instructions">Installation</h1>
+          <h1 id="install-usage">Installation and Usage</h1>
 
-<p>Scans the document for in-text citations (BibTeX keys)</p>
+<p>Install Zotero Integration extension inside Brackets. See <a href="https://github.com/adobe/brackets/wiki/Brackets-Extensions">this</a> guide for detailed instructions.</p>
 
-<p>Search your Zotero Library to select items to reference</p>
+<p>Download <a href="https://github.com/ZotPlus/zotero-better-bibtex">Zotero Better BibTeX</a> verion <a href="https://zotplus.github.io/better-bibtex/zotero-better-bibtex-0.7.11.xpi">0.7.11</a> or later and <a href="https://zotplus.github.io/better-bibtex/index.html#other-niceties">install</a> it.</p>
 
-<p>Insert Citations in your <a href="http://scholarlymarkdown.com/">Scholarly</a> <a href="http://blog.martinfenner.org/2013/06/17/what-is-scholarly-markdown/">Markdown</a> documents</p>
+<p>Open Zotero preferences; navigate to Better Bib(La)TeX section; under <strong>Import/Export</strong> tab, check <strong>Enable Export by HTTP</strong>.</p>
 
-<p>Insert Bibliography in the document</p>
+<p>Restart Firefox/Zotero.</p>
 
-<p>Generate Bibliography in a separate BibTeX File</p>
+<p>Select all items in Zotero library, right-click and select <strong>Generate BibTeX key</strong>. It may take a while if there are many items. If it hangs, try again.</p>
 
-
-        </div>
-      </div>
-    
-      
-      <div id="usage" class="section p-usage">
-        
-        <div class="container center">
-          <h1 id="how-to-use">Usage</h1>
-
-<p>Download a custom Zotero Better BibTeX which provides search capabilities.</p>
-
-<p>Enable Export on HTTPs in Better BibTex preferences.</p>
-
-<p>Generate bibtex keys for all zotero items. If no bibtex key in “extra” field, the extension ill throw an error. See this for guide for making unique bibtex keys.</p>
-
-<h2 id="generate-bibtex-keys">Generate BibTeX Keys</h2>
-
-<p>It’s important that BibTeX keys are unique because they link your Sholarly work to the Reference database.
-By default BBT generates BibTeX keys with [auth][year] format.
-<a href="https://zotplus.github.io/better-bibtex/index.html">BBT</a> gives you complete control over defining your own key format.
-Go through the <strong>Configurable citekey generator</strong> section on the <a href="https://zotplus.github.io/better-bibtex/Citation-Keys.html">Citation Keys</a> page to learn how to configure BBT to generate </p>
+<p>Now you are all set to experience the goodness of Zotero in Brackets.</p>
 
 
         </div>
@@ -174,9 +146,9 @@ Go through the <strong>Configurable citekey generator</strong> section on the <a
       <div id="contribute" class="section p-contribute">
         
         <div class="container center">
-          <h1 id="contributing">Contributing</h1>
+          <h1 id="issues">Issues</h1>
 
-<p>Head over to the projects wiki for guide to contributing.</p>
+<p>If you run into any problem, please take some time to report it on the <a href="https://github.com/baig/brackets-zotero/issues">projects issue page</a>.</p>
 
 
         </div>
@@ -189,8 +161,8 @@ Go through the <strong>Configurable citekey generator</strong> section on the <a
           <h1 id="acknowledgments">Acknowledgments</h1>
 
 <p>Special thanks to the man behind <a href="https://zotplus.github.io/better-bibtex/index.html">Better Bib(La)TeX</a> for swift merging of the proposed
-functionality that this plugin leverages and greatly improving and optimizing the
-contributed code.</p>
+functionality that this plugin relies heavily on, and also greatly improving and optimizing
+the contributed code.</p>
 
 
         </div>
@@ -201,6 +173,8 @@ contributed code.</p>
         
         <div class="container center">
           <h1 id="share-the-word">Share the Word…</h1>
+
+<p>If you like the work or find this useful, then don’t hesitate to share a good word about it.</p>
 
 <p><br /></p>
 

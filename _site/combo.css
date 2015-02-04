@@ -507,42 +507,34 @@ html { box-sizing: border-box; }
   
   
   
-  nav .p-social { border-color: beige; }
-  #social { background-color: beige !important; color: #111111; }
+  nav .p-social { border-color: #f8f8f8; }
+  #social { background-color: #f8f8f8 !important; color: #111111; }
 /*  #social a { color: #111111; }*/
-  #social .sectiondivider { color: beige; }
+  #social .sectiondivider { color: #f8f8f8; }
 
   
   
   
-  nav .p-acknowledge { border-color: #f8f8f8; }
-  #acknowledge { background-color: #f8f8f8 !important; color: #111111; }
+  nav .p-acknowledge { border-color: beige; }
+  #acknowledge { background-color: beige !important; color: #111111; }
 /*  #acknowledge a { color: #111111; }*/
-  #acknowledge .sectiondivider { color: #f8f8f8; }
+  #acknowledge .sectiondivider { color: beige; }
 
   
   
   
-  nav .p-contribute { border-color: beige; }
-  #contribute { background-color: beige !important; color: #111111; }
+  nav .p-contribute { border-color: #f8f8f8; }
+  #contribute { background-color: #f8f8f8 !important; color: #111111; }
 /*  #contribute a { color: #111111; }*/
-  #contribute .sectiondivider { color: beige; }
+  #contribute .sectiondivider { color: #f8f8f8; }
 
   
   
   
-  nav .p-usage { border-color: #f8f8f8; }
-  #usage { background-color: #f8f8f8 !important; color: #111111; }
-/*  #usage a { color: #111111; }*/
-  #usage .sectiondivider { color: #f8f8f8; }
-
-  
-  
-  
-  nav .p-install { border-color: beige; }
-  #install { background-color: beige !important; color: #111111; }
-/*  #install a { color: #111111; }*/
-  #install .sectiondivider { color: beige; }
+  nav .p-install-use { border-color: beige; }
+  #install-use { background-color: beige !important; color: #111111; }
+/*  #install-use a { color: #111111; }*/
+  #install-use .sectiondivider { color: beige; }
 
   
   

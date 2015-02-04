@@ -1,15 +1,14 @@
 ---
 title: "Contribute"
-bg: beige
+bg: white
 color: black
 style: center
 ---
 
-# Contributing
+# Issues
 
-Head over to the projects wiki for guide to contributing.
+If you run into any problem, please take some time to report it on the [projects issue page][1].
 
 
 
-[1]: http://scholarlymarkdown.com/
-[2]: http://blog.martinfenner.org/2013/06/17/what-is-scholarly-markdown/
+[1]: https://github.com/baig/brackets-zotero/issues
