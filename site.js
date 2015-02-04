@@ -26,7 +26,7 @@ $.extend($.easing, {
         navItems = this;
 
         //attatch click listeners
-        navItems.on('click', function (event) {
+        navItems.on('load click', function (event) {
             event.preventDefault();
             var navID = $(this).attr("href").substring(1);
             disableScrollFn = true;
@@ -72,7 +72,7 @@ $.extend($.easing, {
         for (nav in navs) {
             $(navs[nav]).removeClass('active');
         }
-        $(navs[navID]).addClass('active');
+        $(navs[navID]).addClass('active').trigger("activated");
     }
 })(jQuery);
 
@@ -81,83 +81,112 @@ $.extend($.easing, {
 (function ($) {
     
     var nav = null;
+    var $ul = null;
+    var $lis = null;
+    
     var lisWidth = 0;
-    var lisHeight = 0;
-    var navHeight = 0;
-    var liCount = 0;
-    var navFixed = false;
+    var ulHeight = 0;
+    var isMini = false;
+    var prevActive = "";
     
     $.fn.responsiveNav = function (options) {
-        nav = this
+        $nav = this
+        $ul = $nav.find('ul')
         
         this.find('li').each( function() {
-            liCount += 1
-            navHeight = $(this).outerHeight()
             lisWidth += $(this).width()
         })
         
         updateNav()
-        
-        $(window).on('resize orientationChanged', updateNav)
+        $(window).on('resize orientationchange', updateNav)
     };
     
-    function updateNav() {
+    function updateNav(e) {
         if (lisWidth > window.innerWidth) {
-            addClassToLis(nav)
-            attachClickListener(nav);
+            var active
+            if (!isMini) active = activeLi()
+            else active = prevActive
+            prevActive = active
+            
+            $ul.css('display', 'none')
+            
+            attachA(active)
         } else {
-            removeClassFromLis(nav)
-            detachClickListener(nav);
+            removeA()
+            $ul.append($lis)
         }
     }
     
-    function addClassToLis(nav) {
-        nav.find('li').each( function() {
-            $(this).addClass("nav-collapse")
-        })
+    function activeLi() {
+        var active;
+        active = $ul.find('li.active').text()
+        if (!active) active = $ul.find('li:first').not('#temp').text()
+        return active
+    }
         
-        if (!navFixed) {
-            var $ul = nav.find('ul')
-
-            var active = $ul.find('.active').text()
-            if (!active) active = $ul.find('li:first').text()
-
-            nav.find('ul').append('<li><a href="#menu">' + active + '   <span id="menu">&#x2261;</span></a></li>')
-            nav.css("position", "fixed")
-            nav.css("top", "-" + ((liCount * navHeight) + 3) + "px")
+    function attachA(active) {
+        // saving height of ul
+        console.log(ulHeight)
+        if (!isMini) {
+            $nav.append(
+                '<ul id="temp-ul">' +
+                    '<li id="temp">' +
+                        '<a id="label">' + active + '</a>' +
+                        '<svg xmlns="http://www.w3.org/2000/svg" id="hamburger" height="32px" width="32px" version="1.1"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg>' +
+                    '</li>' +
+                '</ul>'
+            )
+            
+            $ul.children().css('display', 'block');
+            $nav.append($ul.detach())
+            
+            $ul.hide();
+            
+            $nav.on('activated', autoUpdateLabel)
+            
+            $('svg#hamburger').on('click', showMenu)
         }
         
-        navFixed = true
+        isMini = true
     }
     
-    function removeClassFromLis(nav) {
-        nav.find('li').each( function() {
-            console.log($(this))
-            $(this).removeClass("nav-collapse")
+    function autoUpdateLabel(e) {
+        console.log("ACTIVATED")
+        var activeLabel = $(e.target).text()
+        $('a#label').text(activeLabel)
+    }
+    
+    function removeA() {
+        $nav.find('ul#temp-ul').remove()
+        $ul.css('display', 'block')
+        $ul.children().css('display', 'inline-block');
+        // Detaching Handlers
+        $nav.off('activated')
+        $('svg#hamburger').off('click')
+        $ul.off('click')
+        isMini = false
+    }
+    
+    function showMenu(e) {
+        if (!ulHeight) {
+            ulHeight = $ul.height()
+        }
+        
+        $ul.on('click', 'li', function(e) {
+            $ul.fadeOut('fast', 'linear')
         })
-        nav.css("position", "static")
+        $ul.fadeToggle('fast', 'linear')
     }
-
-    function attachClickListener(nav) {
-        console.log("NAV ATTACHED")
-        nav.on('click', function (e) {
-            console.log("NAV CLICKED")
-        });
-    }
+        
     
-    function detachClickListener(nav) {
-        console.log("NAV REMOVED")
-        nav.off('click')
-    }
-
 })(jQuery);
 
 
 $(document).ready(function () {
     
-    $('nav').responsiveNav();
-
     $('nav li a').navScroller();
+
+    $('nav').responsiveNav();
 
     //section divider icon click gently scrolls to reveal the section
     $(".sectiondivider").on('click', function (event) {

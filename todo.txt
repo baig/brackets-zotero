@@ -1,0 +1,6 @@
+- Add Content
+
+# MOBILE
+- font size and line spacing adjustments
+- Menu in landscape mode is not visible
+

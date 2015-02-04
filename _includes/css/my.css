@@ -1,7 +1,7 @@
 body {
     /*    font-family: "Open Sans";*/
-    
-    font-family: 'Fira Sans', sans-serif;
+/*    font-family: 'Fira Sans', sans-serif;*/
+    font-family: 'Lato', serif;
     font-size: large;
     line-height: 2.5em;
 }
@@ -10,11 +10,10 @@ h1 {
     font-family: 'Open Sans', sans-serif;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {}
+a {
+    text-decoration: none;
+    color: blue;
+}
 
 .gif > img {
     -webkit-box-shadow: 10px 10px 5px 0px rgba(197, 195, 195, 0.75);
@@ -32,7 +31,7 @@ h6 {}
 
 .social > .fb-like,
 .fb-share-button {
-    top: -6px;
+    top: -16px;
 }
 
 .g-plusone,
@@ -46,12 +45,15 @@ h6 {}
     margin 0 15px 0 15px;
 }
 
-.nav-collapse {
-    display: block;
+#label {
+    font-size: 12pt;
+    line-height: 3;
 }
 
-#menu {
-    position: fixed;
-    right: 0;
-    margin-right: 20px;
+#hamburger {
+    position: absolute;
+    right: 20px;
+    stroke: white;
+    fill: white;
+    top: 11px;
 }
