@@ -1,13 +1,28 @@
 body {
-    /*    font-family: "Open Sans";*/
-/*    font-family: 'Fira Sans', sans-serif;*/
-    font-family: 'Lato', serif;
-    font-size: large;
-    line-height: 2.5em;
+    font-family: "Libre Baskerville";
+    font-size: normal;
+    line-height: 1.5em;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+nav {
+    font-family: 'Arial';
+}
+
+#footer {
+    font-family: 'Verdana';
+}
+
+.section {
+  padding: 25px 0;
+}
+
+.section:first-of-type {
+    padding-top: 75px;
 }
 
 a {
@@ -56,4 +71,26 @@ a {
     stroke: white;
     fill: white;
     top: 11px;
+}
+
+@media screen and (min-width: 500px) {
+    body {
+        font-size: large;
+    }
+    .section {
+      padding: 50px 0;
+    /*  padding:210px 0;*/
+    }
+
+    .section:first-of-type {
+        padding-top: 100px;
+    /*    padding-top: 140px;*/
+    }
+}
+
+@media screen and (min-width: 960px) {
+    body {
+        line-height: 2em;
+    }
+
 }

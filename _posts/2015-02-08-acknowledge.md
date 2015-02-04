@@ -1,6 +1,6 @@
 ---
 title: "Acknowledgments"
-bg: floralwhite
+bg: white
 color: black
 style: center
 ---

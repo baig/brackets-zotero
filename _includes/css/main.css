@@ -136,6 +136,7 @@ nav ul li {
   display:inline-block;
 /*  border-top:{{navborder}}px solid;*/
   padding: {{navborder}}px 0;
+  padding-left: 10px;
   *display:inline;
   zoom:1;
   line-height:normal;
@@ -172,14 +173,14 @@ nav ul li.active {
   display:block;
   width:100%;
 /*  min-height:300px;*/
-  padding:50px 0;
+/*  padding:100px 0;*/
 /*  padding:210px 0;*/
   background:url(img/bgnoise.png);
   /* generated noise from noisetexturegenerator.com */
 }
 
 .section:first-of-type {
-    padding-top: 100px;
+/*    padding-top: 100px;*/
 /*    padding-top: 140px;*/
 }
 

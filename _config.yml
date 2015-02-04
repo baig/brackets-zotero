@@ -16,7 +16,7 @@ font: "'Open Sans', sans-serif"
 
 
 ### content configuration ###
-title:       "Brackets Zotero Integration Plugin"
+title:       "Brackets Zotero Integration Extension (Website)"
 keywords:    "Adobe Brackets, Zotero, plugin, extension"
 description: "Add citations from Zotero library and manage bibliographies in Scholarly Markdown in Brackets."
 source_link: "http://baig.github.io/brackets-zotero/"

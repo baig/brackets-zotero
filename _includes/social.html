@@ -1,12 +1,12 @@
-{% if site.google_plus %}
-<!-- Place this tag where you want the +1 button to render. -->
-<div class="g-plusone" data-size="tall" data-width="300" data-href="{{ site.source_link }}"></div>
+{% if site.facebook %}
+<div class="fb-like" data-href="{{ site.source_link }}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+<div class="fb-share-button" data-href="{{ site.source_link }}" data-layout="box_count"></div>
 {% endif %}
 {% if site.twitter %}
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ site.source_link }}" data-text="Zotero integration with Brackets" data-via="_wbaig" data-hashtags="BracketsZotero" data-count="vertical">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 {% endif %}
-{% if site.facebook %}
-<div class="fb-like" data-href="{{ site.source_link }}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
-<div class="fb-share-button" data-href="{{ site.source_link }}" data-layout="box_count"></div>
+{% if site.google_plus %}
+<!-- Place this tag where you want the +1 button to render. -->
+<div class="g-plusone" data-size="tall" data-width="300" data-href="{{ site.source_link }}"></div>
 {% endif %}

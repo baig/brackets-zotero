@@ -1,6 +1,6 @@
 ---
 title: "Contribute"
-bg: ghostwhite
+bg: beige
 color: black
 style: center
 ---
