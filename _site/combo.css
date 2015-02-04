@@ -523,10 +523,10 @@ html { box-sizing: border-box; }
   
   
   
-  nav .p-contribute { border-color: #f8f8f8; }
-  #contribute { background-color: #f8f8f8 !important; color: #111111; }
-/*  #contribute a { color: #111111; }*/
-  #contribute .sectiondivider { color: #f8f8f8; }
+  nav .p-issues { border-color: #f8f8f8; }
+  #issues { background-color: #f8f8f8 !important; color: #111111; }
+/*  #issues a { color: #111111; }*/
+  #issues .sectiondivider { color: #f8f8f8; }
 
   
   
