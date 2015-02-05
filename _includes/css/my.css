@@ -50,7 +50,7 @@ a {
 
 .social > .fb-like,
 .fb-share-button {
-    top: -16px;
+    top: -7px;
 }
 
 .g-plusone,
@@ -90,11 +90,19 @@ a {
         padding-top: 100px;
     /*    padding-top: 140px;*/
     }
+    .social > .fb-like,
+    .fb-share-button {
+        top: -8px;
+    }
 }
 
 @media screen and (min-width: 960px) {
     body {
         line-height: 2em;
+    }
+    .social > .fb-like,
+    .fb-share-button {
+        top: -10px;
     }
 
 }

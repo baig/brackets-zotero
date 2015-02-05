@@ -16,7 +16,7 @@ Source code is released under the [MIT][2] License
 
 <br>
 
-Website Theme [SinglePaged][3] by [Tim O'Brien][4]
+Website theme based on [SinglePaged][3] by [Tim O'Brien][4]
 
 <br>
 
