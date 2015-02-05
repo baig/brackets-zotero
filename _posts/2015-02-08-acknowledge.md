@@ -8,7 +8,7 @@ style: center
 # Acknowledgments
 
 Special thanks to the man behind [Better Bib(La)TeX][1] for swift merging of the proposed
-functionality that this plugin relies heavily on, and also greatly improving and optimizing
+functionality that this plugin relies on, and also greatly improving and optimizing
 the contributed code.
 
 

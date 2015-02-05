@@ -12,7 +12,11 @@ Copyright &copy; 2015 \| [Wasif Hasan Baig][1]
 {% endif %}
 <iframe src="https://ghbtns.com/github-btn.html?user=baig&type=follow" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
 
-Source code is released under [MIT][2] License
+Source code is released under the [MIT][2] License
+
+<br>
+
+Website Theme [SinglePaged][3] by [Tim O'Brien][4]
 
 <br>
 
@@ -20,3 +24,5 @@ Source code is released under [MIT][2] License
 
 [1]: {{ site.twitter_url }}
 [2]: http://opensource.org/licenses/MIT
+[3]: http://t413.com/SinglePaged/
+[4]: http://t413.com/

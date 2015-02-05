@@ -17,6 +17,10 @@ nav {
     font-family: 'Verdana';
 }
 
+#footer a{
+    color: #00FFFF;
+}
+
 .section {
   padding: 25px 0;
 }
