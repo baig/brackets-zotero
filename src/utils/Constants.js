@@ -2,9 +2,8 @@ define(function (require, exports, module) {
     'use strict'
 
     module.exports = {
-        
         QUERY_URL: 'http://localhost:23119/better-bibtex/schomd',
-        
+
         // Selector Strings
         SEARCH_RESULTS: "div#zotero-search-results",
         UI_SEARCH_INPUT: "input#zotero-search-query",
@@ -28,9 +27,8 @@ define(function (require, exports, module) {
         CMD_ID_REFRESH_BIBLIO: "baig.zoteroplugin.bibliography.refresh",
 
         KBD_TOGGLE_PANEL: "Ctrl-Shift-Z",
-        
+
         CSS_ZOTERO: '../styles/zotero.css',
-    
     }
 
 });

@@ -1,8 +1,8 @@
 define(function (require, exports, module) {
     'use strict';
-    
+
     var Radio = require("src/thirdparty/Radio");
-    
+
     // Communication Channels for triggering Events, giving Commands and sending Requests
     module.exports = {
         Extension: Radio.channel("zotero"),
