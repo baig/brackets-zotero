@@ -18,11 +18,11 @@ define(function (require, exports, module) {
     }
 
     function _request(data) {
-        return Promise.resolve($.ajax({
+        return $.ajax({
             type: 'POST',
             url: C.QUERY_URL,
             data: JSON.stringify(data)
-        }))
+        })
     }
 
     function _registerCommandsAndKeyBindings() {
