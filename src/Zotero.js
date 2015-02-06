@@ -124,7 +124,8 @@ define(function (require, exports, module) {
             }
 
             // only year in date
-            objs.date = (objs.date) ? objs.date.match(/[0-9][0-9][0-9][0-9]/)[0] : objs.date
+            if (objs.data && objs.date.match(/[0-9]{4,4}/) !== null)
+                 objs.date = objs.date.match(/[0-9]{4,4}/)[0]
                 //
                 // converting creators object to a string of authors
             var authors = "";
