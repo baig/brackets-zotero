@@ -16,10 +16,10 @@ define(function (require, exports, module) {
     // HTML Templates
     var SearchModelBarTemplate = require("text!../htmlContent/zotero-panel.html");
     var SearchResultListTemplate = require("text!../htmlContent/zotero-search-results.html");
-    
+
     var $icon;
 
-    
+
     function _toggleZoteroPanel(show) {
         switch (show) {
             case true: _show(this); return
@@ -29,7 +29,7 @@ define(function (require, exports, module) {
                 else _show(this)
         }
     }
-    
+
     function _show(Panel) {
         // Show panel
         Panel.panel.show()
@@ -61,7 +61,7 @@ define(function (require, exports, module) {
 
         Channel.Extension.trigger(C.MSG_PANEL_HIDDEN)
     }
-    
+
     function _handleSearchOnKeyUp() {
         var query = $(this).val().trim()
         if (!query) {
@@ -92,12 +92,12 @@ define(function (require, exports, module) {
             Channel.Extension.trigger("panel:item:selected", bibtexKey, checked)
         }
     }
-    
+
     function _append(selectorString, template, data) {
         if (data) $(selectorString).append(Mustache.render(template, data))
         else $(selectorString).append(Mustache.render(template))
     }
-    
+
     function _clearSearchField() {
         $(C.UI_SEARCH_INPUT).val("")
     }
@@ -115,7 +115,7 @@ define(function (require, exports, module) {
             Channel.Extension.trigger('panel:list:cleared')
         }
     }
-    
+
     function _isVisible() {
         return this.visible
     }
@@ -124,16 +124,16 @@ define(function (require, exports, module) {
 //        console.log("initializing Panel...")
 
         ExtensionUtils.loadStyleSheet(module, C.CSS_ZOTERO);
-        
+
         var renderedTemplate = $( Mustache.render( SearchModelBarTemplate, {S: S} ) )
         this.panel = WorkspaceManager.createBottomPanel("zoteroplugin.library.search", renderedTemplate, 300)
-        
+
         // Displaying icon in the Project Panel and attach `click` handler
         $icon = $("<a id='zotero-toolbar-icon' href='#'></a>").appendTo($("#main-toolbar .buttons"));
         $icon.on("click", function () { CommandManager.execute(C.CMD_ID_TOGGLE_PANEL) })
-        
+
         var $panel = this.panel.$panel
-        
+
         $panel
             .on('click', C.CLOSE_BTN,           function () { CommandManager.execute(C.CMD_ID_HIDE_PANEL) })
             .on('click', C.CLEAR_BTN,           function () { CommandManager.execute(C.CMD_ID_CLEAR_ALL) })
@@ -142,17 +142,16 @@ define(function (require, exports, module) {
             .on('click', C.INSERT_BTN,          function () { CommandManager.execute(C.CMD_ID_INSERT_CITE) })
             .on('click', C.INSERT_BIBLIO_BTN,   function () { CommandManager.execute(C.CMD_ID_INSERT_BIBLIO) })
             .on('click', C.GENERATE_BIBLIO_BTN, function () { CommandManager.execute(C.CMD_ID_GENERATE_BIBLIO) })
-        
-        
+
         Channel.UI.comply('display', _displaySearchResults)
         Channel.UI.reply(Events.REQUEST_PANEL_VISIBILITY_STATUS, _.bind(_isVisible, this))
         Channel.Extension.comply(C.CMD_ID_TOGGLE_PANEL, _.bind(_toggleZoteroPanel, this))
         Channel.Extension.comply(C.CMD_ID_HIDE_PANEL, _.bind(_toggleZoteroPanel, this, false))
         Channel.Extension.comply(C.CMD_ID_CLEAR_ALL, _clearAll);
-        
+
 //        console.log("initializing Panel...COMPLETE")
     }
-    
+
     function Panel() {
         this.visible = false
         this.panel = null
@@ -160,6 +159,5 @@ define(function (require, exports, module) {
     }
 
     module.exports = new Panel()
-        
 
 });

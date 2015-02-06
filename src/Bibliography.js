@@ -40,7 +40,7 @@ define(function (require, exports, module) {
     function Bibliography() {
         Channel.Extension.on(Events.EVENT_INIT, _.bind(_init, this))
     }
-    
+
     module.exports = new Bibliography()
 
 });

@@ -10,7 +10,7 @@ define(function (require, exports, module) {
     var Channel = require("src/utils/Channel")
     var Utils = require("src/utils/Utils")
     var Events = require("src/utils/Events")
-    
+
     require('src/Panel')
     require('src/Document')
     require('src/Bibliography')
@@ -200,7 +200,7 @@ define(function (require, exports, module) {
 
         Channel.Extension.on('panel:list:cleared', _.bind(_clearSelection, this))
         Channel.Extension.on('panel:item:selected', _.bind(_updateSelection, this))
-        
+
         Channel.Extension.trigger(Events.EVENT_INIT)
     }
 
