@@ -65,7 +65,7 @@ define(function (require, exports, module) {
             method: 'search',
             params: [query]
         }
-        console.log(reqData)
+//        console.log(reqData)
         return Utils.request(reqData)
     }
 
@@ -75,9 +75,8 @@ define(function (require, exports, module) {
      * @returns {Promise|boolean} Returns the request Promise if keys[] is not empty; otherwise returns false
      */
     function _requestBibliography() {
-        console.log("WASIF", this.citations)
         if (!this.citations) return false
-        console.log("Requesting bibliography from server...")
+//        console.log("Requesting bibliography from server...")
         var data = {
             method: 'bibtex',
             params: [this.citations, {
@@ -187,7 +186,7 @@ define(function (require, exports, module) {
                 bibtexKey: bibtexKey
             })
         }
-        console.log(bibtexKey, checked, this)
+//        console.log(bibtexKey, checked, this)
     }
 
     function _init() {

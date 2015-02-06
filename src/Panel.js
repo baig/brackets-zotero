@@ -121,7 +121,7 @@ define(function (require, exports, module) {
     }
 
     function _init() {
-        console.log("initializing Panel...")
+//        console.log("initializing Panel...")
 
         ExtensionUtils.loadStyleSheet(module, C.CSS_ZOTERO);
         
@@ -143,7 +143,6 @@ define(function (require, exports, module) {
             .on('click', C.INSERT_BIBLIO_BTN,   function () { CommandManager.execute(C.CMD_ID_INSERT_BIBLIO) })
             .on('click', C.GENERATE_BIBLIO_BTN, function () { CommandManager.execute(C.CMD_ID_GENERATE_BIBLIO) })
         
-        console.log(this.visible)
         
         Channel.UI.comply('display', _displaySearchResults)
         Channel.UI.reply(Events.REQUEST_PANEL_VISIBILITY_STATUS, _.bind(_isVisible, this))
@@ -151,7 +150,7 @@ define(function (require, exports, module) {
         Channel.Extension.comply(C.CMD_ID_HIDE_PANEL, _.bind(_toggleZoteroPanel, this, false))
         Channel.Extension.comply(C.CMD_ID_CLEAR_ALL, _clearAll);
         
-        console.log("initializing Panel...COMPLETE")
+//        console.log("initializing Panel...COMPLETE")
     }
     
     function Panel() {

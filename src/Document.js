@@ -14,7 +14,7 @@ define(function (require, exports, module) {
 
 
     function extractKeysFromText(fileContents) {
-        console.log("SCAN: Extracting citation keys...")
+//        console.log("SCAN: Extracting citation keys...")
         var keys = []
         var match = fileContents.match(C.REGEXP_MATCH_BRACKETS)
         _.forEach(match, function (citesEnclosedInBrackets) {
@@ -32,7 +32,7 @@ define(function (require, exports, module) {
         if (!editor) editor = EditorManager.getCurrentFullEditor();
         // if still no editor found, throwing error
         if (!editor) {
-            console.log("No Editor found!")
+//            console.log("No Editor found!")
             return false
         }
         return editor
@@ -48,21 +48,21 @@ define(function (require, exports, module) {
     }
 
     function _handleFileScan(editor) {
-        console.log("Scan Requested...")
+//        console.log("Scan Requested...")
 
         editor = _getEditor(editor)
         if (!editor) return false
 
         var fileExtension = _getFileExtension(editor)
         if (!_.contains(settings.docTypesToScanForCitationKeys, fileExtension)) {
-            console.log("Scan Requested...Aborting: '" + fileExtension + "' files not allowed to scan!")
+//            console.log("Scan Requested...Aborting: '" + fileExtension + "' files not allowed to scan!")
             return false
         }
 
         var panelVisible = Channel.UI.request(Events.REQUEST_PANEL_VISIBILITY_STATUS)
-        console.log("PANEL-VISIBILITY", panelVisible)
+//        console.log("PANEL-VISIBILITY", panelVisible)
         if (!panelVisible) {
-            console.log("Scan Requested...Aborting: Panel is not visible!")
+//            console.log("Scan Requested...Aborting: Panel is not visible!")
             return false
         }
 
@@ -73,7 +73,7 @@ define(function (require, exports, module) {
 //            return false
 //        }
 
-        console.log("Scan Requested...scanning!")
+//        console.log("Scan Requested...scanning!")
         var fileContents = editor.document.getText()
         if (!fileContents) return []
         var keys = extractKeysFromText(fileContents)
@@ -109,7 +109,7 @@ define(function (require, exports, module) {
     }
 
     function _init() {
-        console.log("initializing Document...")
+//        console.log("initializing Document...")
 
         Channel.Extension.on(C.MSG_PANEL_SHOWN, _.bind(_handleFileScan, this))
         Channel.Extension.on(Events.EVENT_EDITOR_CHANGE, _.bind(_handleFileScan, this))
@@ -117,7 +117,7 @@ define(function (require, exports, module) {
         Channel.Extension.comply(C.CMD_ID_INSERT_CITE, _handleInserCitation)
         Channel.Extension.comply(C.CMD_ID_INSERT_BIBLIO, _handleInsertBibliography)
 
-        console.log("initializing Document...COMPLETE")
+//        console.log("initializing Document...COMPLETE")
     }
 
     function Document() {

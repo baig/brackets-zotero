@@ -32,9 +32,9 @@ define(function (require, exports, module) {
     }
 
     function _init() {
-        console.log("initializing Bibliography...")
+//        console.log("initializing Bibliography...")
         Channel.Extension.comply(C.CMD_ID_GENERATE_BIBLIO, _handleGenerateBibliography)
-        console.log("initializing Bibliography...COMPLETE")
+//        console.log("initializing Bibliography...COMPLETE")
     }
 
     function Bibliography() {
