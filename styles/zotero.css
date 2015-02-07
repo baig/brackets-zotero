@@ -2,9 +2,16 @@
     margin-bottom: 0px;
 }
 
-#zotero-search-results > td {
-    padding-top: 0;
-    padding-bottom: 0;
+#zotero-search-results td:nth-child(1) {
+    width: 1%;
+}
+
+#zotero-search-results td:nth-child(2) {
+    width: 2%;
+}
+
+#zotero-search-results td:nth-child(4) {
+    width: 40%;
 }
 
 #zotero-toolbar-icon {
