@@ -21,3 +21,20 @@
 #zotero-toolbar-icon.active {
     background-position: 0 -48px !important;
 }
+
+/* Notify.js */
+
+#zotero-notification-bar .alert {
+    border-radius: 0;
+    margin: 0;
+}
+
+#zotero-notification-bar .alert-red {
+    color: white !important;
+    background-color: #DA4453;
+}
+
+#zotero-notification-bar .alert-grey {
+    color: white !important;
+    background-color: #555555;
+}

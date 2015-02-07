@@ -77,7 +77,10 @@ define(function (require, exports, module) {
         var fileContents = editor.document.getText()
         if (!fileContents) return []
         var keys = extractKeysFromText(fileContents)
-        if (keys.length) Channel.Zotero.trigger('citekeys:from:document', keys)
+        if (keys.length) {
+            Channel.Zotero.trigger('citekeys:from:document', keys)
+            Channel.UI.command('notify:file:scan', editor.document.file.name)
+        }
 
         this.scanned = true
     }

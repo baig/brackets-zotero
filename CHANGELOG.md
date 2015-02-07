@@ -12,6 +12,8 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Attempt to search when Zotero is not running displays
   an error dialog with appropriate suggestions and a
   link to detailed instructions.
+- User is notified if citation keys are found on document
+  scan.
 
 ## [0.1.2] - 2015-02-06
 

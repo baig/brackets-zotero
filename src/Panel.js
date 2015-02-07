@@ -14,6 +14,7 @@ define(function (require, exports, module) {
     var C = require("src/utils/Constants")
     var Channel = require("src/utils/Channel")
     var Events = require("src/utils/Events")
+    require("src/thirdparty/Notify")
 
     // HTML Templates
     var SearchModelBarTemplate = require("text!../htmlContent/zotero-panel.html");
@@ -92,6 +93,10 @@ define(function (require, exports, module) {
         )
     }
 
+    function _notifyFileScan(filename) {
+        notify('Citation keys found in "' + filename + '"', "grey", "octicon octicon-info", true)
+    }
+
     function _clearAll() {
         _clearSearchField()
         _clearItems()
@@ -160,6 +165,7 @@ define(function (require, exports, module) {
 
         Channel.UI.comply('display:results', _displaySearchResults)
         Channel.UI.comply('display:error', _displayErrorDialog)
+        Channel.UI.comply('notify:file:scan', _notifyFileScan)
         Channel.UI.reply(Events.REQUEST_PANEL_VISIBILITY_STATUS, _.bind(_isVisible, this))
         Channel.Extension.comply(C.CMD_ID_TOGGLE_PANEL, _.bind(_toggleZoteroPanel, this))
         Channel.Extension.comply(C.CMD_ID_HIDE_PANEL, _.bind(_toggleZoteroPanel, this, false))
