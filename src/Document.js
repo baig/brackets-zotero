@@ -100,12 +100,14 @@ define(function (require, exports, module) {
     function _insertText(string) {
         var editor = EditorManager.getCurrentFullEditor();
         var doc = DocumentManager.getCurrentDocument();
-        var selection = editor.getSelection();
-        // var scroll = editor.getScrollPos();
-        doc.batchOperation(function () {
-            doc.replaceRange(string, selection.start);
-            // editor.setScrollPos(scroll.x, scroll.y);
-        });
+        var selections = editor.getSelections();
+        var edits = []
+
+        _.forEach(selections, function(sel) {
+            edits.push({edit: {text: string, start: sel.start, end: sel.end}})
+        })
+
+        doc.doMultipleEdits(edits)
     }
 
     function _init() {
