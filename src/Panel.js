@@ -5,6 +5,8 @@ define(function (require, exports, module) {
     var CommandManager = brackets.getModule("command/CommandManager")
     var ExtensionUtils = brackets.getModule("utils/ExtensionUtils")
     var WorkspaceManager = brackets.getModule("view/WorkspaceManager")
+    var DefaultDialogs = brackets.getModule("widgets/DefaultDialogs")
+    var Dialogs = brackets.getModule("widgets/Dialogs")
     var _ = brackets.getModule("thirdparty/lodash")
 
     // Local modules
@@ -78,6 +80,18 @@ define(function (require, exports, module) {
         _append(C.SEARCH_RESULTS, SearchResultListTemplate, searchResults)
     }
 
+    function _displayErrorDialog() {
+        Dialogs.showModalDialog(
+            DefaultDialogs.DIALOG_ID_ERROR,
+            'Unable to Search Zotero Library!',
+            'Make sure either <strong>Firefox</strong> or <strong>Zotero standalone</strong> is running ' +
+            'with <strong>Better Bib(La)TeX</strong> extension installed and configured.' +
+            '<br><br>' +
+            'See <strong>Install & Use</strong> section on <a href="http://baig.github.io/brackets-zotero/">this</a> page ' +
+            'for more detailed setup instructions.'
+        )
+    }
+
     function _clearAll() {
         _clearSearchField()
         _clearItems()
@@ -144,7 +158,8 @@ define(function (require, exports, module) {
             .on('click', C.INSERT_BIBLIO_BTN,   function () { CommandManager.execute(C.CMD_ID_INSERT_BIBLIO) })
             .on('click', C.GENERATE_BIBLIO_BTN, function () { CommandManager.execute(C.CMD_ID_GENERATE_BIBLIO) })
 
-        Channel.UI.comply('display', _displaySearchResults)
+        Channel.UI.comply('display:results', _displaySearchResults)
+        Channel.UI.comply('display:error', _displayErrorDialog)
         Channel.UI.reply(Events.REQUEST_PANEL_VISIBILITY_STATUS, _.bind(_isVisible, this))
         Channel.Extension.comply(C.CMD_ID_TOGGLE_PANEL, _.bind(_toggleZoteroPanel, this))
         Channel.Extension.comply(C.CMD_ID_HIDE_PANEL, _.bind(_toggleZoteroPanel, this, false))

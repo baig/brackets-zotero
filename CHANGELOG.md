@@ -9,6 +9,9 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ### Added
 - Hovering over icon in Project panel displays name and
   keyboard shortcut.
+- Attempt to search when Zotero is not running displays
+  an error dialog with appropriate suggestions and a
+  link to detailed instructions.
 
 ## [0.1.2] - 2015-02-06
 

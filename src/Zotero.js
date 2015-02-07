@@ -53,10 +53,10 @@ define(function (require, exports, module) {
                 results: searchResults
             }
 
-            Channel.UI.command('display', searchResults)
+            Channel.UI.command('display:results', searchResults)
         }.bind(this), function (err) {
             console.warn("Unable to perform search. Make sure either Firefox or Zotero standalone is running.")
-            return false
+            Channel.UI.command('display:error')
         })
     }
 
