@@ -129,8 +129,9 @@ define(function (require, exports, module) {
         this.panel = WorkspaceManager.createBottomPanel("zoteroplugin.library.search", renderedTemplate, 300)
 
         // Displaying icon in the Project Panel and attach `click` handler
-        $icon = $("<a id='zotero-toolbar-icon' href='#'></a>").appendTo($("#main-toolbar .buttons"));
-        $icon.on("click", function () { CommandManager.execute(C.CMD_ID_TOGGLE_PANEL) })
+        $icon = $('<a id="zotero-toolbar-icon" href="#" title="' + S.UI_TOOLTIP + '"></a>')
+                .appendTo($("#main-toolbar .buttons"))
+                .on("click", function () { CommandManager.execute(C.CMD_ID_TOGGLE_PANEL) })
 
         var $panel = this.panel.$panel
 

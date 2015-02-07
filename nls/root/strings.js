@@ -10,6 +10,7 @@ define({
     COMMAND_GENERATE_BIBLIOGRAPHY:  "Generate Bibliography File",
     COMMAND_CLEAR_ALL_RESULTS:      "Clear All Results",
     
+    UI_TOOLTIP:                             "Zotero (Ctrl/Cmd+Shift+Z)",
     UI_PANEL_SEARCH_PLACEHOLDER:            "Search items in your Zotero library",
     UI_PANEL_INSERT_CITATION:               "Insert Citation(s)",
     UI_PANEL_CLEAR_RESULTS:                 "Clear Result(s)",

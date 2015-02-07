@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 The subsection are to be interpreted as defined [here](http://keepachangelog.com/).
 
+## [Unreleased][unreleased]
+
+### Added
+- Hovering over icon in Project panel displays name and
+  keyboard shortcut.
+
 ## [0.1.2] - 2015-02-06
 
 ### Added
