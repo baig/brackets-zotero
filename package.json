@@ -1,6 +1,6 @@
 {
     "name": "baig.brackets-zotero",
-    "version": "0.1.0",
+    "version": "0.1.2",
     "title": "Zotero Integration",
     "description": "Add In-Text Citations and Manage Bibliographies in Scholarly Markdown using Zotero",
     "homepage": "http://baig.github.io/brackets-zotero/",
