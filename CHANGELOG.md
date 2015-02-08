@@ -14,6 +14,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
   link to detailed instructions.
 - User is notified if citation keys are found on document
   scan.
+- Search terms are highlighted in the search results.
 
 ## [0.1.2] - 2015-02-06
 

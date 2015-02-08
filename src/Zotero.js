@@ -39,6 +39,36 @@ define(function (require, exports, module) {
         return searchResults
     }
 
+    function _surroundWithSpan(string, index, length) {
+        var matchedStr = string.slice(index,  index+length)
+        var surroundingStr = string.split(matchedStr)
+        var wrappedMatchedStr = '<span class="highlight">' + matchedStr + '</span>'
+        return surroundingStr[0] + wrappedMatchedStr + surroundingStr[1]
+    }
+
+    function _highlightSearchTerms(query, searchResults) {
+        var terms = query.split(' ')
+        var terms = _.filter(terms, function(term) { return term.length > 1 })
+
+        _.forEach( searchResults, function (resultObj) {
+            _.forEach( terms, function (term) {
+                var matchTitle = resultObj.title.match(new RegExp(term, 'i'))
+                var matchCreators = resultObj.creators.match(new RegExp(term, 'i'))
+                var matchDate = resultObj.date.match(new RegExp(term, 'i'))
+
+                if (matchTitle !== null)
+                    resultObj.title = _surroundWithSpan(resultObj.title, matchTitle.index, term.length)
+
+                if (matchCreators !== null)
+                    resultObj.creators = _surroundWithSpan(resultObj.creators, matchCreators.index, term.length)
+
+                if (matchDate !== null)
+                    resultObj.date = _surroundWithSpan(resultObj.date, matchDate.index, term.length)
+            })
+        })
+        return searchResults
+    }
+
     function _handleSearch(query) {
         _search(query).then(function (response) {
             var searchResults = (!!response.result) ? _postprocessData(response.result, ", ") : []
@@ -48,6 +78,8 @@ define(function (require, exports, module) {
                 //            console.log(this.keysToAdd, searchResults)
 
             if (!_.isEmpty(this.selected)) searchResults = _pushSelectedItemsToTop(searchResults, this.selected)
+
+            searchResults = _highlightSearchTerms(query, searchResults)
 
             searchResults = {
                 results: searchResults
