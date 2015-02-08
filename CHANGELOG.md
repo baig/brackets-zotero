@@ -6,6 +6,8 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ## [Unreleased][unreleased]
 
+## [0.1.3] - 2015-02-08
+
 ### Added
 - Hovering over icon in Project panel displays name and
   keyboard shortcut.
@@ -42,6 +44,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ## 0.1.0 - 2015-02-04
 Initial release
 
-[unreleased]: https://github.com/baig/brackets-zotero/compare/0.1.2...HEAD
+[unreleased]: https://github.com/baig/brackets-zotero/compare/0.1.3...HEAD
+[0.1.3]: https://github.com/baig/brackets-zotero/compare/0.1.2...0.1.3
 [0.1.2]: https://github.com/baig/brackets-zotero/compare/0.1.1...0.1.2
 [0.1.1]: https://github.com/baig/brackets-zotero/compare/0.1.0...0.1.1
