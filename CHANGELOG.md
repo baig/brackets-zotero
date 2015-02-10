@@ -17,6 +17,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Enlarged and centered text inside notification bar.
 - Contents of the toolbar pushed little bit to the right
   to align with the left edge of the Panel View.
+- Moved the extension intialization code to `src/Main.js`.
 
 ### Fixed
 - Fixed table column styles to not effect distribution

@@ -259,9 +259,6 @@ define(function (require, exports, module) {
     }
 
     function _init() {
-        // Registering all commands to use Extension-wide Radio Channel
-        Utils.registerCommandsAndKeyBindings()
-
         Channel.Zotero.on('citekeys:from:document', _.bind(_handleCitekeysFoundInDocument, this))
         Channel.Zotero.comply('search', _.bind(_handleSearch, this))
         Channel.Zotero.reply(Events.REQUEST_CITE_STRING, _.bind(_handleCiteStringRequest, this))
@@ -270,7 +267,6 @@ define(function (require, exports, module) {
         Channel.Extension.on('panel:list:cleared', _.bind(_clearSelection, this))
         Channel.Extension.on('panel:item:selected', _.bind(_updateSelection, this))
 
-        Channel.Extension.trigger(Events.EVENT_INIT)
     }
 
     function Zotero() {
@@ -278,7 +274,7 @@ define(function (require, exports, module) {
         this.results = [] // search results from the server
         this.selected = [] // selected Zotero Items with `selected` property set to true
         this.keysToAdd = [] // keys of selected items to add in citations at the end of this search session
-        this.init = _init
+        Channel.Extension.on(Events.EVENT_INIT, _.bind(_init, this))
     }
 
     module.exports = new Zotero()

@@ -11,10 +11,10 @@ define(function (require, exports, module) {
     'use strict';
 
     var AppInit = brackets.getModule("utils/AppInit")
-    var Zotero = require("src/Zotero");
+    var Main = require("src/Main");
 
     AppInit.appReady(function () {
-        Zotero.init()
+        Main.init()
     });
 
 });
