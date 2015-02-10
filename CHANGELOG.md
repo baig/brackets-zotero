@@ -14,6 +14,13 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ### Changed
 - Search results are now displayed inside a Panel View.
+- Enlarged and centered text inside notification bar.
+- Contents of the toolbar pushed little bit to the right
+  to align with the left edge of the Panel View.
+
+### Fixed
+- Fixed table column styles to not effect distribution
+  of column space in Citation View.
 
 ## [0.1.3] - 2015-02-08
 
