@@ -9,6 +9,8 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ### Added
 - Added **Panel View**, a widget that permits hosting a
   number of distinct views inside a **Panel**.
+- Added a **Panel View** to show existing citations in
+  the current document.
 
 ### Changed
 - Search results are now displayed inside a Panel View.

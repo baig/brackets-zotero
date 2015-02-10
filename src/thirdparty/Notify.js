@@ -16,7 +16,7 @@ function _clearTimeOuts(arrTimeouts) {
     }
 }
 
-function notify(text, color, icon, removePreviousOnes, dismiss) {
+function notify(text, color, removePreviousOnes, icon, dismiss) {
     // text : message to show (HTML tag allowed)
     // Available colors : red, green, blue, orange, yellow --- add your own!
 

@@ -96,8 +96,12 @@ define(function (require, exports, module) {
         )
     }
 
-    function _notifyFileScan(filename) {
-        notify('Citation keys found in "' + filename + '"', "grey", "octicon octicon-info", true)
+    function _handleExistingCitesDisplay(existingCites) {
+        // clearing existing citations
+        $('div#' + C.PANEL_VIEW_CITATION).children().remove()
+        _append('div#' + C.PANEL_VIEW_CITATION, ExistingCitationsTemplate, existingCites)
+        PanelView.setActivePanel(C.PANEL_VIEW_CITATION)
+        notify('Citations found in this document!', "grey", true)
     }
 
     function _clearAll() {
@@ -168,7 +172,7 @@ define(function (require, exports, module) {
 
         Channel.UI.comply('display:results', _displaySearchResults)
         Channel.UI.comply('display:error', _displayErrorDialog)
-        Channel.UI.comply('notify:file:scan', _notifyFileScan)
+        Channel.UI.comply('display:existing:cites', _handleExistingCitesDisplay)
         Channel.UI.reply(Events.REQUEST_PANEL_VISIBILITY_STATUS, _.bind(_isVisible, this))
         Channel.Extension.comply(C.CMD_ID_TOGGLE_PANEL, _.bind(_toggleZoteroPanel, this))
         Channel.Extension.comply(C.CMD_ID_HIDE_PANEL, _.bind(_toggleZoteroPanel, this, false))

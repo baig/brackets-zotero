@@ -10,6 +10,7 @@ define(function (require, exports, module) {
     var Channel = require("src/utils/Channel")
     var Utils = require("src/utils/Utils")
     var Events = require("src/utils/Events")
+    var BibtexParser = require("src/thirdparty/BibtexParser")
 
     require('src/Panel')
     require('src/Document')
@@ -106,17 +107,40 @@ define(function (require, exports, module) {
      * @param   {string[]}        keys List of citation keys
      * @returns {Promise|boolean} Returns the request Promise if keys[] is not empty; otherwise returns false
      */
-    function _requestBibliography() {
-        if (!this.citations) return false
+    function _requestBibliography(citationKeys, format) {
+        var format = format || 'text'
+        var citations = citationKeys || ( (this && this.citations) ? this.citations : false )
+        if (!citations) return false
 //        console.log("Requesting bibliography from server...")
         var data = {
             method: 'bibtex',
-            params: [this.citations, {
-                    format: 'text'
+            params: [citations, {
+                    format: format
                 }]
                 // available translators: "betterbibtex", "betterbiblatex", "latexcitation", "pandoccitation", "zoterotestcase", "bibtexaux scanner"
         }
         return Utils.request(data)
+    }
+
+    function _postprocessExistingCites(citationKeys, existingCites) {
+        var count = 1;
+        var result = []
+        _.forEach( citationKeys, function (key) {
+            var cite = existingCites[ key.toUpperCase() ]
+            var obj = {}
+            
+            obj.number = count++;
+            obj.bibtexKey = '@' + key;
+            // omitting all the braces from title
+            obj.title = (cite && cite.TITLE) ? cite.TITLE.replace(/\{|\}/g, '') : ''
+            // replacing any date with just `YYYY` formatted date
+            obj.date = (cite && cite.DATE && cite.DATE.match(/\d{4,4}/g) !== null) ? cite.DATE.match(/\d{4,4}/g)[0] : ''
+            // omitting all braces from authors; removing ` and `; removing `firstname`; joining by `, `
+            obj.authors = (cite && cite.AUTHOR) ? cite.AUTHOR.replace(/\{|\}/g, '').split(' and ').map( function(author) { return author.split(', ')[0] } ).join(', ') : ''
+            
+            result.push(obj)
+        })
+        return result
     }
 
     function _generateCiteString(keys) {
@@ -181,9 +205,19 @@ define(function (require, exports, module) {
         return arrayOfObjects
     }
 
-    function _updateKeysHash(keys) {
+    function _handleCitekeysFoundInDocument(keys) {
+        // updating keys hashes
         this.keysToAdd = keys
         this.citations = keys
+        
+        // requesting bibliography
+        var biblioJsonPromise = _requestBibliography(keys)
+        biblioJsonPromise.then( function(data) {
+            if (!data || !data.result) return false
+            var existingCites = _postprocessExistingCites( keys, BibtexParser.parse(data.result) )
+            existingCites = { existingCites: existingCites }
+            Channel.UI.command( 'display:existing:cites', existingCites )
+        })
     }
 
     function _clearSelection() {
@@ -228,7 +262,7 @@ define(function (require, exports, module) {
         // Registering all commands to use Extension-wide Radio Channel
         Utils.registerCommandsAndKeyBindings()
 
-        Channel.Zotero.on('citekeys:from:document', _.bind(_updateKeysHash, this))
+        Channel.Zotero.on('citekeys:from:document', _.bind(_handleCitekeysFoundInDocument, this))
         Channel.Zotero.comply('search', _.bind(_handleSearch, this))
         Channel.Zotero.reply(Events.REQUEST_CITE_STRING, _.bind(_handleCiteStringRequest, this))
         Channel.Zotero.reply(Events.REQUEST_BIBLIOGRAPHY, _.bind(_requestBibliography, this))

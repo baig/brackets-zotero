@@ -1,0 +1,37 @@
+<table class="bottom-panel-table table table-striped table-condensed row-highlight">
+    <tbody>
+        <thead>
+            <td><strong>#</strong></td>
+            <td><strong>KEY</strong></td>
+            <td><strong>TITLE</strong></td>
+            <td><strong>DATE</strong></td>
+            <td><strong>AUTHOR(s)</strong></td>
+        </thead>
+        {{#existingCites}}
+        <tr data-bibtex-key="{{bibtexKey}}">
+            <td>
+                <label for="{{bibtexKey}}">{{number}}</label>
+            </td>
+            <td>
+                <label for="{{bibtexKey}}">{{bibtexKey}}</label>
+            </td>
+            <td>
+                <label for="{{bibtexKey}}">{{title}}</label>
+            </td>
+            <td>
+                <label for="{{bibtexKey}}">{{date}}</label>
+            </td>
+            <td>
+                <label for="{{bibtexKey}}">{{authors}}</label>
+            </td>
+        </tr>
+        {{/existingCites}}
+        {{^existingCites}}
+        <tr>
+            <td>
+                <em>No Results Found</em>
+            </td>
+        </tr>
+        {{/existingCites}}
+    </tbody>
+</table>
