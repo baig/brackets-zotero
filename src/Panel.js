@@ -14,11 +14,13 @@ define(function (require, exports, module) {
     var C = require("src/utils/Constants")
     var Channel = require("src/utils/Channel")
     var Events = require("src/utils/Events")
+    var PanelView = require("src/utils/PanelView")
     require("src/thirdparty/Notify")
 
     // HTML Templates
     var SearchModelBarTemplate = require("text!../htmlContent/zotero-panel.html");
     var SearchResultListTemplate = require("text!../htmlContent/zotero-search-results.html");
+    var ExistingCitationsTemplate = require("text!../htmlContent/zotero-existing-citations.html");
 
     var $icon;
 
@@ -71,14 +73,15 @@ define(function (require, exports, module) {
             _clearItems( {unselected: true} )
             return false
         }
+        PanelView.setActivePanel(C.PANEL_VIEW_SEARCH)
         Channel.Zotero.command("search", query)
     }
 
     function _displaySearchResults(searchResults) {
         // clearing previous result list
         _clearItems();
-        // appending the result list
-        _append(C.SEARCH_RESULTS, SearchResultListTemplate, searchResults)
+        _append('div#' + C.PANEL_VIEW_SEARCH, SearchResultListTemplate, searchResults)
+        PanelView.setActivePanel(C.PANEL_VIEW_SEARCH)
     }
 
     function _displayErrorDialog() {
@@ -126,10 +129,10 @@ define(function (require, exports, module) {
 
         if (removeUnselectedOnly) {
             // Remove only unselected items from view
-            $(C.SEARCH_RESULTS).children().find("tr:not(.selected)").remove()
+            $('div#' + C.PANEL_VIEW_SEARCH).children().find("tr:not(.selected)").remove()
         } else {
             // Remove all items from view
-            $(C.SEARCH_RESULTS).children().remove()
+            $('div#' + C.PANEL_VIEW_SEARCH).children().remove()
 
             Channel.Extension.trigger('panel:list:cleared')
         }
@@ -158,7 +161,7 @@ define(function (require, exports, module) {
             .on('click', C.CLOSE_BTN,           function () { CommandManager.execute(C.CMD_ID_HIDE_PANEL) })
             .on('click', C.CLEAR_BTN,           function () { CommandManager.execute(C.CMD_ID_CLEAR_ALL) })
             .on('keyup', C.UI_SEARCH_INPUT,     _handleSearchOnKeyUp)
-            .on('click', C.SEARCH_RESULTS,      _handleListItemClick)
+            .on('click', 'div#' + C.PANEL_VIEW_SEARCH,      _handleListItemClick)
             .on('click', C.INSERT_BTN,          function () { CommandManager.execute(C.CMD_ID_INSERT_CITE) })
             .on('click', C.INSERT_BIBLIO_BTN,   function () { CommandManager.execute(C.CMD_ID_INSERT_BIBLIO) })
             .on('click', C.GENERATE_BIBLIO_BTN, function () { CommandManager.execute(C.CMD_ID_GENERATE_BIBLIO) })
@@ -171,6 +174,9 @@ define(function (require, exports, module) {
         Channel.Extension.comply(C.CMD_ID_HIDE_PANEL, _.bind(_toggleZoteroPanel, this, false))
         Channel.Extension.comply(C.CMD_ID_CLEAR_ALL, _clearAll);
 
+        PanelView.createPanelView( C.PANEL_VIEW_SEARCH, $panel, {icon: 'octicon octicon-search'} )
+        PanelView.createPanelView( C.PANEL_VIEW_CITATION, $panel, {icon: 'octicon octicon-mention'} )
+        
 //        console.log("initializing Panel...COMPLETE")
     }
 

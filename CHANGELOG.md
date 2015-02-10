@@ -6,6 +6,13 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ## [Unreleased][unreleased]
 
+### Added
+- Added **Panel View**, a widget that permits hosting a
+  number of distinct views inside a **Panel**.
+
+### Changed
+- Search results are now displayed inside a Panel View.
+
 ## [0.1.3] - 2015-02-08
 
 ### Added

@@ -5,7 +5,6 @@ define(function (require, exports, module) {
         QUERY_URL: 'http://localhost:23119/better-bibtex/schomd',
 
         // Selector Strings
-        SEARCH_RESULTS: "div#zotero-search-results",
         UI_SEARCH_INPUT: "input#zotero-search-query",
         INSERT_BTN: "button#zotero-insert-btn",
         CLEAR_BTN: "button#zotero-clear-btn",
@@ -25,6 +24,9 @@ define(function (require, exports, module) {
         CMD_ID_INSERT_BIBLIO: "baig.zoteroplugin.bibliography.insert",
         CMD_ID_GENERATE_BIBLIO: "baig.zoteroplugin.bibliography.generate",
         CMD_ID_REFRESH_BIBLIO: "baig.zoteroplugin.bibliography.refresh",
+
+        PANEL_VIEW_SEARCH: "baig-zoteroplugin-panelview-search",
+        PANEL_VIEW_CITATION: "baig-zoteroplugin-panelview-citation",
 
         KBD_TOGGLE_PANEL: "Ctrl-Shift-Z",
 

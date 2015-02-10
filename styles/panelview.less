@@ -1,0 +1,48 @@
+/* Panel View */
+
+@pv-bg-color: #444;
+@pv-text-color: black;
+@dark-pv-bg-color: #AAA;
+@dark-pv-text-color: white;
+
+.panel-view {
+    /* To hide the margin
+     * between horizontal
+     * and vertical toolbar */
+    position: relative;
+    top: -5px;
+    z-index: 0;
+    height: inherit;
+    /* height of status bar */
+    margin-bottom: 26px;
+    display: flex;
+}
+.panel-view-header {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.panel-view-header a {
+    background: none !important;
+    outline: 0 none !important;
+    border: 0 none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 8px 1px 4px 0;
+}
+.panel-view .panel-view-content {
+    /* to compensate for relative
+     * positioning of header */
+    margin-top: 5px;
+    flex: 1 1 auto;
+    overflow: scroll;
+}
+.panel-view .panel-view-content div {
+    height: inherit;
+}
+.panel-view-header a.panel-view-btn-active {
+    color: white;
+    background: #777 !important;
+}

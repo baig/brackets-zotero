@@ -2,24 +2,23 @@
     margin-bottom: 0px;
 }
 
-#zotero-search-results td:nth-child(1) {
+.panel-view-content td:nth-child(1) {
     width: 1%;
 }
 
-#zotero-search-results td:nth-child(2) {
+.panel-view-content td:nth-child(2) {
     width: 2%;
 }
 
-#zotero-search-results td:nth-child(4) {
+.panel-view-content td:nth-child(4) {
     width: 40%;
 }
 
-#zotero-search-results td span.highlight {
+.panel-view-content td span.highlight {
     color: black;
-    background-color: yellow;
-    border-radius: 4px;
-    padding-right: 2px;
-    padding-left: 2px;
+    background-color: yellow !important;
+    border-radius: 4px !important;
+    padding: 0 2px 0 2px !important;
 }
 
 #zotero-toolbar-icon {
