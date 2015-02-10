@@ -11,6 +11,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
   number of distinct views inside a **Panel**.
 - Added a **Panel View** to show existing citations in
   the current document.
+- Zotero icon in top left corner of the panel.
 
 ### Changed
 - Search results are now displayed inside a Panel View.

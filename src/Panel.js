@@ -22,6 +22,9 @@ define(function (require, exports, module) {
     var SearchResultListTemplate = require("text!../htmlContent/zotero-search-results.html");
     var ExistingCitationsTemplate = require("text!../htmlContent/zotero-existing-citations.html");
 
+    // Resources
+    var icon = require.toUrl("styles/icons/zotero.png")
+
     var $icon;
 
 
@@ -151,7 +154,7 @@ define(function (require, exports, module) {
 
         ExtensionUtils.loadStyleSheet(module, C.CSS_ZOTERO);
 
-        var renderedTemplate = $( Mustache.render( SearchModelBarTemplate, {S: S} ) )
+        var renderedTemplate = $( Mustache.render( SearchModelBarTemplate, {S: S, icon: icon} ) )
         this.panel = WorkspaceManager.createBottomPanel("zoteroplugin.library.search", renderedTemplate, 300)
 
         // Displaying icon in the Project Panel and attach `click` handler
