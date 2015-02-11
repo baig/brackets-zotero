@@ -6,6 +6,11 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ## [Unreleased][unreleased]
 
+## [0.1.5] - 2015-02-11
+
+### Fixed
+- Fixed icon font issue.
+
 ## [0.1.4] - 2015-02-11
 
 ### Added

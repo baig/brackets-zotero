@@ -11,6 +11,7 @@ define(function (require, exports, module) {
 
     // Brackets Modules
     var EditorManager = brackets.getModule("editor/EditorManager");
+    var ExtensionUtils = brackets.getModule("utils/ExtensionUtils")
 
     // Local modules
     var Channel = require("src/utils/Channel")
@@ -33,6 +34,8 @@ define(function (require, exports, module) {
     function _init() {
         // registering all commands to use Extension-wide Radio Channel
         Utils.registerCommandsAndKeyBindings()
+        // loading octicons css
+        ExtensionUtils.loadStyleSheet(module, '../styles/icons/octicons/octicons.css');
         // wake up everyone
         Channel.Extension.trigger(Events.EVENT_INIT)
     }
