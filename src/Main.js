@@ -20,7 +20,7 @@ define(function (require, exports, module) {
     require('src/Panel')
     require('src/Document')
     require('src/Bibliography')
-    require('src/utils/EventTranslator')
+    require('src/SettingsDialog')
 
     /**
      * Channeling `activeEditorChange` Brackets' Event to the

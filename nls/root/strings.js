@@ -9,6 +9,7 @@ define({
     COMMAND_INSERT_BIBLIOGRAPHY:    "Insert Bibliography",
     COMMAND_GENERATE_BIBLIOGRAPHY:  "Generate Bibliography File",
     COMMAND_CLEAR_ALL_RESULTS:      "Clear All Results",
+    COMMAND_ZOTERO_SETTINGS:        "Show Zotero Settings",
     
     UI_TOOLTIP:                             "Zotero (Ctrl/Cmd+Shift+Z)",
     UI_PANEL_SEARCH_PLACEHOLDER:            "Search items in your Zotero library",
@@ -16,4 +17,10 @@ define({
     UI_PANEL_CLEAR_RESULTS:                 "Clear Result(s)",
     UI_PANEL_INSERT_BIBLIOGRAPHY:           "Insert Bibliography",
     UI_PANEL_GENERATE_BIBLIOGRAPHY_FILE:    "Generate BibTeX File",
+
+    SETTINGS_TITLE:             "Zotero Settings",
+    SETTINGS_TAB_GENERAL:       "General",
+    SETTINGS_BUTTON_DEFAULTS:   "Restore Defaults",
+    SETTINGS_BUTTON_CANCEL:     "Cancel",
+    SETTINGS_BUTTON_SAVE:       "Save",
 });

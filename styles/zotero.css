@@ -3,6 +3,14 @@
     margin-bottom: 0px;
 }
 
+#zotero-panel .zotero-right-align i {
+    background-color: inherit;
+    position: absolute;
+    /* vertically centers close button */
+    top: 28%;
+    right: 35px;
+}
+
 .panel-view-content div:first-child td:nth-child(1) {
     width: 1%;
 }

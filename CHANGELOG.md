@@ -12,6 +12,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Added a **Panel View** to show existing citations in
   the current document.
 - Zotero icon in top left corner of the panel.
+- Added Settings Dialog.
 
 ### Changed
 - Search results are now displayed inside a Panel View.

@@ -35,6 +35,7 @@ define(function (require, exports, module) {
         CommandManager.register(S.COMMAND_INSERT_BIBLIOGRAPHY, C.CMD_ID_INSERT_BIBLIO, _command);
         CommandManager.register(S.COMMAND_GENERATE_BIBLIOGRAPHY, C.CMD_ID_GENERATE_BIBLIO, _command);
 
+        CommandManager.register(S.COMMAND_ZOTERO_SETTINGS, C.CMD_ID_SHOW_SETTINGS, _command);
         CommandManager.register(S.COMMAND_CLEAR_ALL_RESULTS, C.CMD_ID_CLEAR_ALL, _command);
 
         KeyBindingManager.addBinding(C.CMD_ID_TOGGLE_PANEL, C.KBD_TOGGLE_PANEL)

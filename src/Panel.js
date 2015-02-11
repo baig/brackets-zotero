@@ -172,6 +172,7 @@ define(function (require, exports, module) {
             .on('click', C.INSERT_BTN,          function () { CommandManager.execute(C.CMD_ID_INSERT_CITE) })
             .on('click', C.INSERT_BIBLIO_BTN,   function () { CommandManager.execute(C.CMD_ID_INSERT_BIBLIO) })
             .on('click', C.GENERATE_BIBLIO_BTN, function () { CommandManager.execute(C.CMD_ID_GENERATE_BIBLIO) })
+            .on('click', C.SETTINGS_BTN,        function () { CommandManager.execute(C.CMD_ID_SHOW_SETTINGS) })
 
         Channel.UI.comply('display:results', _displaySearchResults)
         Channel.UI.comply('display:error', _displayErrorDialog)
