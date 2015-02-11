@@ -21,6 +21,11 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
   to align with the left edge of the Panel View.
 - Moved the extension intialization code to `src/Main.js`.
 
+### Removed
+- Removed `utils/EventTranslator.js`. This module's
+  functionality has been moved to `src/Main.js`.
+- Removed superfluous require statements from `src/Zotero.js`.
+
 ### Fixed
 - Fixed table column styles to not effect distribution
   of column space in Citation View.

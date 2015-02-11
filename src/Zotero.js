@@ -12,11 +12,6 @@ define(function (require, exports, module) {
     var Events = require("src/utils/Events")
     var BibtexParser = require("src/thirdparty/BibtexParser")
 
-    require('src/Panel')
-    require('src/Document')
-    require('src/Bibliography')
-    require('src/utils/EventTranslator')
-
     /**
      * Removes items from search results array given a set of cite keys
      * @param   {{bibtexKey:string}[]} searchResults result items fetched as a result of the query
