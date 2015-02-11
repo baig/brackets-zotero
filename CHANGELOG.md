@@ -55,6 +55,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Column widths of checkbox input, date, and authors are
   now fixed to certain proportion of the total width of
   the row.
+- Change styling of Panel View Header buttons.
 
 ## [0.1.1] - 2015-02-05
 

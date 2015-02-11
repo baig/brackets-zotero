@@ -4,6 +4,10 @@
 @pv-text-color: black;
 @dark-pv-bg-color: #AAA;
 @dark-pv-text-color: white;
+@bc-panel-bg:           #dfe2e2;
+@dark-bc-panel-bg:      #2c2c2c;
+@bc-panel-border:       rgba(0, 0, 0, 0.09);
+@dark-bc-panel-border:  #000;
 
 .panel-view {
     /* To hide the margin
@@ -31,6 +35,8 @@
     box-shadow: none !important;
     border-radius: 0 !important;
     padding: 8px 1px 4px 0;
+    position: relative;
+    right: -1px;
 }
 .panel-view .panel-view-content {
     /* to compensate for relative
@@ -43,6 +49,8 @@
     height: inherit;
 }
 .panel-view-header a.panel-view-btn-active {
-    color: white;
-    background: #777 !important;
+    background-color: @bc-panel-bg !important;
+    .dark & {
+        background-color: @dark-bc-panel-bg  !important;
+    }
 }
