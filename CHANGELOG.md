@@ -6,6 +6,12 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ## [Unreleased][unreleased]
 
+### Changed
+- Refactored Panel Views out of Panel.
+- Replaced string event names with string constants in
+  Events' namespace.
+- Many other minor changes.
+
 ## [0.1.5] - 2015-02-11
 
 ### Fixed

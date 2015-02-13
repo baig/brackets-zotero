@@ -81,10 +81,10 @@ define(function (require, exports, module) {
                 results: searchResults
             }
 
-            Channel.UI.command('display:results', searchResults)
+            Channel.UI.command( Events.COMMAND_DISPLAY_RESULTS, searchResults )
         }.bind(this), function (err) {
             console.warn("Unable to perform search. Make sure either Firefox or Zotero standalone is running.")
-            Channel.UI.command('display:error')
+            Channel.UI.command( Events.COMMAND_DISPLAY_ERROR )
         })
     }
 
@@ -211,7 +211,7 @@ define(function (require, exports, module) {
             if (!data || !data.result) return false
             var existingCites = _postprocessExistingCites( keys, BibtexParser.parse(data.result) )
             existingCites = { existingCites: existingCites }
-            Channel.UI.command( 'display:existing:cites', existingCites )
+            Channel.UI.command( Events.COMMAND_DISPLAY_CITES, existingCites )
         })
     }
 
@@ -254,13 +254,13 @@ define(function (require, exports, module) {
     }
 
     function _init() {
-        Channel.Zotero.on('citekeys:from:document', _.bind(_handleCitekeysFoundInDocument, this))
-        Channel.Zotero.comply('search', _.bind(_handleSearch, this))
+        Channel.Zotero.on(Events.EVENT_CITEKEYS_FOUND, _.bind(_handleCitekeysFoundInDocument, this))
+        Channel.Zotero.comply(Events.COMMAND_SEARCH, _.bind(_handleSearch, this))
         Channel.Zotero.reply(Events.REQUEST_CITE_STRING, _.bind(_handleCiteStringRequest, this))
         Channel.Zotero.reply(Events.REQUEST_BIBLIOGRAPHY, _.bind(_requestBibliography, this))
 
-        Channel.Extension.on('panel:list:cleared', _.bind(_clearSelection, this))
-        Channel.Extension.on('panel:item:selected', _.bind(_updateSelection, this))
+        Channel.Extension.on( Events.EVENT_PANELVIEW_CLEARED, _.bind(_clearSelection, this))
+        Channel.Extension.on(Events.EVENT_ITEM_SELECTED, _.bind(_updateSelection, this))
 
     }
 

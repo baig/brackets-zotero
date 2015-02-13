@@ -12,7 +12,7 @@ define(function (require, exports, module) {
     var Events = require("src/utils/Events")
 
     // HTML Templates
-    var SettingsDialogTemplate = require("text!../htmlContent/zotero-settings-dialog.html")
+    var SettingsDialogTemplate = require("text!../../htmlContent/zotero-settings-dialog.html")
 
     /**
      * Handlers

@@ -78,7 +78,7 @@ define(function (require, exports, module) {
         if (!fileContents) return []
         var keys = extractKeysFromText(fileContents)
         if (keys.length) {
-            Channel.Zotero.trigger('citekeys:from:document', keys)
+            Channel.Zotero.trigger(Events.EVENT_CITEKEYS_FOUND, keys)
         }
 
         this.scanned = true
@@ -115,7 +115,7 @@ define(function (require, exports, module) {
     function _init() {
 //        console.log("initializing Document...")
 
-        Channel.Extension.on(C.MSG_PANEL_SHOWN, _.bind(_handleFileScan, this))
+        Channel.Extension.on(Events.EVENT_PANEL_SHOWN, _.bind(_handleFileScan, this))
         Channel.Extension.on(Events.EVENT_EDITOR_CHANGE, _.bind(_handleFileScan, this))
 
         Channel.Extension.comply(C.CMD_ID_INSERT_CITE, _handleInserCitation)
