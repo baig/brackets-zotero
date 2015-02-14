@@ -15,6 +15,8 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ### Fixed
 - Spaces in URL are replaced by %20 while loading icon
   resource in `src/ui/Panel.js`.
+- Changed Keybinding to **Alt-Z** becasue **Shift-Cmd-Z**
+  is assigned to **Edit > Redo** in Mac OS.
 
 ## [0.1.5] - 2015-02-11
 
