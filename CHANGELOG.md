@@ -12,6 +12,10 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
   Events' namespace.
 - Many other minor changes.
 
+### Fixed
+- Spaces in URL are replaced by %20 while loading icon
+  resource in `src/ui/Panel.js`.
+
 ## [0.1.5] - 2015-02-11
 
 ### Fixed

@@ -16,7 +16,7 @@ define(function (require, exports, module) {
 
     // Tempates and Resources
     var PanelTemplate = require("text!../../htmlContent/zotero-panel.html");
-    var icon = require.toUrl("styles/icons/zotero.png")
+    var icon = require.toUrl("styles/icons/zotero.png").replace(/ /g, '%20')
 
     function _toggleZoteroPanel(show) {
         switch (show) {
