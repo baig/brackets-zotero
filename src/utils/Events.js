@@ -36,5 +36,7 @@ define(function (require, exports, module) {
         EVENT_PANELVIEW_CLEARED: 'panelview:list:cleared',
         EVENT_ITEM_SELECTED: 'searchpanelview:item:selected',
 
+        // CitePanelView.js
+        COMMAND_HIGHLIGHT_CITES: 'document:highlight:cites',
     }
 })

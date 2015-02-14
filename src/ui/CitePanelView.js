@@ -23,13 +23,26 @@ define(function (require, exports, module) {
         notify('Citations found in this document!', "grey", true)
     }
 
+    function _handleListItemClick(e) {
+        var $target = $(e.target)
+        if ($target.is('td')) {
+            $target = $target.children()
+        }
+        Channel.Document.command( Events.COMMAND_HIGHLIGHT_CITES, $target.data('key') )
+    }
+
     function _init($panel) {
+        var panelView = PanelView.createPanelView( C.PANEL_VIEW_CITATION, $panel, {icon: 'octicon octicon-mention'} )
+        this.$panelView = panelView.$panelView
+
+        this.$panelView.on( 'click', _handleListItemClick )
+
         Channel.UI.comply(Events.COMMAND_DISPLAY_CITES, _handleExistingCitesDisplay)
-        PanelView.createPanelView( C.PANEL_VIEW_CITATION, $panel, {icon: 'octicon octicon-mention'} )
     }
 
     function CitePanelView() {
         this.active = false
+        this.$panelView = null
         Channel.UI.comply( Events.COMMAND_CITE_PANELVIEW_INIT, _.bind(_init, this) )
     }
 

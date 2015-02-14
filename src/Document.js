@@ -27,6 +27,30 @@ define(function (require, exports, module) {
         return _.uniq(keys)
     }
 
+    function _indexKeysLocations( fileContents, keys ) {
+        var lines = fileContents.split("\n")
+        var lineCount = 0; // 0-based line count
+        var selectionKeys = {}
+        _.forEach( lines, function(line) {
+            _.forEach( keys, function (key) {
+                if (!selectionKeys[key]) selectionKeys[key] = []
+                var re = new RegExp(key, 'g')
+                var match;
+                while ((match = re.exec(line)) != null) {
+                    var obj = { line: lineCount,
+                                index: match.index,
+                                current: false, }
+                    selectionKeys[key].push(obj)
+                }
+            })
+            lineCount++
+        })
+        _.forEach( selectionKeys, function( array ) {
+            array[0].current = true
+        })
+        return selectionKeys
+    }
+
     function _getEditor(editor) {
         // getting editor if no editor provided
         if (!editor) editor = EditorManager.getCurrentFullEditor();
@@ -45,6 +69,34 @@ define(function (require, exports, module) {
 
     function _getFileExtension(editor) {
         return editor.document.file._path.split(".").slice(-1)[0];
+    }
+
+    function _getNextKey(key) {
+        var col = this.keysLocationHash[key]
+        var length = col.length
+        var index = 0
+        var currentItem = null
+        _.forEach( col, function( item, idx ) {
+            if (!!item.current) {
+                index = idx
+                currentItem = item
+            }
+        })
+        this.keysLocationHash[key][index].current = false
+        if ( index == length-1 ) {
+            this.keysLocationHash[key][0].current = true
+        } else {
+            this.keysLocationHash[key][index+1].current = true
+        }
+        return currentItem
+    }
+
+    function _handleHighightCites(key) {
+        var editor = EditorManager.getCurrentFullEditor();
+        if (!editor) return false
+        var curentCite = _.bind( _getNextKey, this )( key.slice(1) )
+        editor.setCursorPos( curentCite.line, curentCite.index, true)
+        editor.selectWordAt(editor.getSelection().start)
     }
 
     function _handleFileScan(editor) {
@@ -78,7 +130,9 @@ define(function (require, exports, module) {
         if (!fileContents) return []
         var keys = extractKeysFromText(fileContents)
         if (keys.length) {
+            this.extractedKeys = keys
             Channel.Zotero.trigger(Events.EVENT_CITEKEYS_FOUND, keys)
+            this.keysLocationHash = _indexKeysLocations( fileContents, keys )
         }
 
         this.scanned = true
@@ -115,6 +169,7 @@ define(function (require, exports, module) {
     function _init() {
 //        console.log("initializing Document...")
 
+        Channel.Document.comply( Events.COMMAND_HIGHLIGHT_CITES, _.bind(_handleHighightCites, this) )
         Channel.Extension.on(Events.EVENT_PANEL_SHOWN, _.bind(_handleFileScan, this))
         Channel.Extension.on(Events.EVENT_EDITOR_CHANGE, _.bind(_handleFileScan, this))
 
@@ -126,6 +181,8 @@ define(function (require, exports, module) {
 
     function Document() {
         this.scanned = false
+        this.extractedKeys = []
+        this.keysLocationHash = {}
 //        this.path = ''
         Channel.Extension.on(Events.EVENT_INIT, _.bind(_init, this))
     }

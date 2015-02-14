@@ -6,6 +6,12 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ## [Unreleased][unreleased]
 
+### Added
+- Click on a cite item in cite panel view highlights
+  the citation in the document. Repeated clicking keeps
+  highlighting the next citation if present and cycles
+  back to the first after encountering the last citation.
+
 ### Changed
 - Refactored Panel Views out of Panel.
 - Replaced string event names with string constants in
