@@ -15,7 +15,7 @@ Source code is released under the Terms and Conditions of [MIT License][5]. Plea
 [1]: https://github.com/ZotPlus/zotero-better-bibtex
 [2]: https://github.com/ZotPlus
 [3]: https://atom.io/packages/zotero-citations
-[4]: https://twitter.com/wasifhasanbaig
+[4]: https://twitter.com/_wbaig
 [5]: http://opensource.org/licenses/MIT
 [6]: https://github.com/baig/brackets-zotero/blob/master/LICENSE.txt
 [7]: http://baig.github.io/brackets-zotero/
