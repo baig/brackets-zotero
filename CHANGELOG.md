@@ -22,10 +22,13 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ### Fixed
 - Spaces in URL are replaced by %20 while loading icon
   resource in `src/ui/Panel.js`.
-- Changed Keybinding to **Alt-Z** becasue **Shift-Cmd-Z**
-  is assigned to **Edit > Redo** in Mac OS.
+- ~~Changed Keybinding to **Alt-Z** becasue **Shift-Cmd-Z**
+  is assigned to **Edit > Redo** in Mac OS~~.
 - Changed PanelView.$panelView property to point to the
   respective panel-view content container.
+- Keeping the same keybinding "Ctrl-Shift-Z" in Windows and
+  Linux. Changing it to **Alt-Z** only in Mac OS because
+  **Shift-Cmd-Z** is already assigned to **Edit > Redo**.
 
 ## [0.1.5] - 2015-02-11
 

@@ -38,7 +38,7 @@ define(function (require, exports, module) {
         CommandManager.register(S.COMMAND_ZOTERO_SETTINGS, C.CMD_ID_SHOW_SETTINGS, _command);
         CommandManager.register(S.COMMAND_CLEAR_ALL_RESULTS, C.CMD_ID_CLEAR_ALL, _command);
 
-        KeyBindingManager.addBinding(C.CMD_ID_TOGGLE_PANEL, C.KBD_TOGGLE_PANEL)
+        KeyBindingManager.addBinding(C.CMD_ID_TOGGLE_PANEL, (brackets.platform === 'mac') ? C.KBD_TOGGLE_PANEL_MAC : C.KBD_TOGGLE_PANEL)
 
     }
 

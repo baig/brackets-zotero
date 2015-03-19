@@ -30,7 +30,8 @@ define(function (require, exports, module) {
         PANEL_VIEW_SEARCH: "baig-zoteroplugin-panelview-search",
         PANEL_VIEW_CITATION: "baig-zoteroplugin-panelview-citation",
 
-        KBD_TOGGLE_PANEL: "Alt-Z",
+        KBD_TOGGLE_PANEL: "Ctrl-Shift-Z",
+        KBD_TOGGLE_PANEL_MAC: "Alt-Z",
 
         CSS_ZOTERO: '../styles/zotero.css',
     }
