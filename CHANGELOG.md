@@ -17,6 +17,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Replaced string event names with string constants in
   Events' namespace.
 - Many other minor changes.
+- Updated template for existing cites. 
 
 ### Fixed
 - Spaces in URL are replaced by %20 while loading icon
