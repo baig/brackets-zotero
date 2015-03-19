@@ -35,21 +35,9 @@ define(function (require, exports, module) {
         UiUtils.clearView( 'div#'+C.PANEL_VIEW_SEARCH, options )
     }
 
-    function _handleListItemClick(e) {
-        var $elem = $(e.target)
-        if ($elem.is("input")) {
-            var bibtexKey = $(e.target).attr("id")
-            var checked = $(e.target).is(":checked")
-            // captured in Zotero.js
-            Channel.Extension.trigger(Events.EVENT_ITEM_SELECTED, bibtexKey, checked)
-        }
-    }
-
     function _init($panel) {
-        var panelView = PanelView.createPanelView   ( C.PANEL_VIEW_SEARCH, $panel, {icon: 'octicon octicon-search'} )
-        this.$panelView = panelView.$panelView
-
-        this.$panelView.on( 'click', _handleListItemClick )
+        this.panelView = PanelView.createPanelView   ( C.PANEL_VIEW_SEARCH, $panel, {icon: 'octicon octicon-search'} )
+        this.panelView.$panelView.on( 'click', _.bind(_handleListItemClick, this) )
 
         Channel.UI.comply           ( Events.COMMAND_DISPLAY_RESULTS,       _displaySearchResults )
         Channel.UI.comply           ( Events.COMMAND_CLEAR_SEARCH_ITEMS,    _clearItems           )
@@ -57,7 +45,7 @@ define(function (require, exports, module) {
 
     function SearchPanelView() {
         this.active = false
-        this.$panelView = null
+        this.panelView = null
         Channel.UI.comply( Events.COMMAND_SEARCH_PANELVIEW_INIT, _.bind(_init, this) )
     }
 

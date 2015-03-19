@@ -32,17 +32,14 @@ define(function (require, exports, module) {
     }
 
     function _init($panel) {
-        var panelView = PanelView.createPanelView( C.PANEL_VIEW_CITATION, $panel, {icon: 'octicon octicon-mention'} )
-        this.$panelView = panelView.$panelView
-
-        this.$panelView.on( 'click', _handleListItemClick )
-
+        this.panelView = PanelView.createPanelView( C.PANEL_VIEW_CITATION, $panel, {icon: 'octicon octicon-mention'} )
+        this.panelView.$panelView.on( 'click', _.bind(_handleListItemClick, this) )
         Channel.UI.comply(Events.COMMAND_DISPLAY_CITES, _handleExistingCitesDisplay)
     }
 
     function CitePanelView() {
         this.active = false
-        this.$panelView = null
+        this.panelView = null
         Channel.UI.comply( Events.COMMAND_CITE_PANELVIEW_INIT, _.bind(_init, this) )
     }
 

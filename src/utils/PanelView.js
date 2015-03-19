@@ -46,8 +46,7 @@ define(function (require, exports, module) {
      * @param {String}       id         Unique id for the panel in package-style naming
      */
     function PanelView($panelView, id) {
-        $panelView = $panelView;
-        this.$panelView = $panelView;
+        this.$panelView = $panelView.find('#' + id.replace(/\./g, '-')) ;
         this.id = id;
     }
 
