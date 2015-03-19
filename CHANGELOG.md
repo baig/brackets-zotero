@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 The subsection are to be interpreted as defined [here](http://keepachangelog.com/).
 
-## [Unreleased][unreleased]
+## [0.1.6] - 2015-03-19
 
 ### Added
 - Click on a cite item in cite panel view highlights
@@ -100,7 +100,8 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ## 0.1.0 - 2015-02-04
 Initial release
 
-[unreleased]: https://github.com/baig/brackets-zotero/compare/0.1.5...HEAD
+[unreleased]: https://github.com/baig/brackets-zotero/compare/0.1.6...HEAD
+[0.1.6]: https://github.com/baig/brackets-zotero/compare/0.1.5...0.1.6
 [0.1.5]: https://github.com/baig/brackets-zotero/compare/0.1.4...0.1.5
 [0.1.4]: https://github.com/baig/brackets-zotero/compare/0.1.3...0.1.4
 [0.1.3]: https://github.com/baig/brackets-zotero/compare/0.1.2...0.1.3
