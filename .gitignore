@@ -1,4 +1,4 @@
 node_modules/**/*
-unittests/**/*
-unittest/**/*
 *.zip
+unittests.js
+todo.md

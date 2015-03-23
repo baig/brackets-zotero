@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 The subsection are to be interpreted as defined [here](http://keepachangelog.com/).
 
+[Unreleased][unreleased]
+
+### Changed
+- Updated gitignore.
+
 ## [0.1.6] - 2015-03-19
 
 ### Added
