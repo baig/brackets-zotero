@@ -1,31 +1,38 @@
 {
-    "name": "baig.brackets-zotero",
-    "version": "0.1.6",
-    "title": "Zotero Integration",
-    "description": "Add In-Text Citations and Manage Bibliographies in Scholarly Markdown using Zotero",
-    "homepage": "http://baig.github.io/brackets-zotero/",
-    "engines": {
-        "brackets": ">=1.1.0"
-    },
-    "author": "Wasif Hasan Baig <pr.wasif@gmail.com>",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/baig/brackets-zotero.git"
-    },
-    "bugs": {
-        "url": "https://github.com/baig/brackets-zotero/issues",
-        "email": "pr.wasif@gmail.com"
-    },
-    "keywords": [
-        "zotero",
-        "citation",
-        "reference",
-        "citation management",
-        "reference management",
-        "bibliography generation"
-    ],
-    "i18n": [
-        "en"
-    ]
+  "name": "baig.brackets-zotero",
+  "version": "0.1.6",
+  "title": "Zotero Integration",
+  "description": "Add In-Text Citations and Manage Bibliographies in Scholarly Markdown using Zotero",
+  "homepage": "http://baig.github.io/brackets-zotero/",
+  "engines": {
+    "brackets": ">=1.1.0"
+  },
+  "author": "Wasif Hasan Baig <pr.wasif@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baig/brackets-zotero.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baig/brackets-zotero/issues",
+    "email": "pr.wasif@gmail.com"
+  },
+  "keywords": [
+    "zotero",
+    "citation",
+    "reference",
+    "citation management",
+    "reference management",
+    "bibliography generation"
+  ],
+  "i18n": [
+    "en"
+  ],
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jscs": "^1.4.0",
+    "gulp-jscs-stylish": "^1.0.2",
+    "gulp-jshint": "^1.9.4",
+    "jshint-stylish": "^1.0.1"
+  }
 }

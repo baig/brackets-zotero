@@ -6,6 +6,10 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 [Unreleased][unreleased]
 
+### Added
+- Added `lint` task in gulpfile.js for linting using `JSHint` and code
+  style checking using `JSCS`.
+
 ### Changed
 - Updated gitignore.
 
@@ -22,7 +26,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Replaced string event names with string constants in
   Events' namespace.
 - Many other minor changes.
-- Updated template for existing cites. 
+- Updated template for existing cites.
 
 ### Fixed
 - Spaces in URL are replaced by %20 while loading icon
