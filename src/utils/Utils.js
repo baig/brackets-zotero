@@ -1,11 +1,16 @@
+/*jslint vars: true, nomen: true, plusplus: true */
+/*global define, brackets, $ */
 define(function (require, exports, module) {
-    'use strict'
+    "use strict";
 
-    var CommandManager = brackets.getModule("command/CommandManager");
-    var KeyBindingManager = brackets.getModule("command/KeyBindingManager");
-    var Channel = require("src/utils/Channel")
-    var C = require("src/utils/Constants")
-    var S = require("strings")
+    // Brackets modules
+    var KeyBindingManager = brackets.getModule("command/KeyBindingManager"),
+        CommandManager    = brackets.getModule("command/CommandManager");
+
+    // Local modules
+    var Channel           = require("src/utils/Channel"),
+        C                 = require("src/utils/Constants"),
+        S                 = require("strings");
 
     /**
      * All Commands registered are given this callback which channels the CMD_ID
@@ -13,38 +18,39 @@ define(function (require, exports, module) {
      * to the command must listen to the desired CMD_ID on the Extension-wide
      * Radio Channel.
      */
-    function _command() {
-        Channel.Extension.command(this._id)
+    function command() {
+        /*jshint validthis: true */
+        Channel.Extension.command(this._id);
     }
 
-    function _request(data) {
+    function request(data) {
         return $.ajax({
-            type: 'POST',
-            url: C.QUERY_URL,
-            data: JSON.stringify(data)
-        })
+            type : "POST",
+            url  : C.QUERY_URL,
+            data : JSON.stringify(data)
+        });
     }
 
-    function _registerCommandsAndKeyBindings() {
+    function registerCommandsAndKeyBindings() {
 
-        CommandManager.register(S.COMMAND_SHOW_ZOTERO_PANEL, C.CMD_ID_SHOW_PANEL, _command);
-        CommandManager.register(S.COMMAND_HIDE_ZOTERO_PANEL, C.CMD_ID_HIDE_PANEL, _command);
-        CommandManager.register(S.COMMAND_TOGGLE_ZOTERO_PANEL, C.CMD_ID_TOGGLE_PANEL, _command);
+        CommandManager.register(S.COMMAND_SHOW_ZOTERO_PANEL,     C.CMD_ID_SHOW_PANEL,      command);
+        CommandManager.register(S.COMMAND_HIDE_ZOTERO_PANEL,     C.CMD_ID_HIDE_PANEL,      command);
+        CommandManager.register(S.COMMAND_TOGGLE_ZOTERO_PANEL,   C.CMD_ID_TOGGLE_PANEL,    command);
 
-        CommandManager.register(S.COMMAND_INSERT_CITATION, C.CMD_ID_INSERT_CITE, _command);
-        CommandManager.register(S.COMMAND_INSERT_BIBLIOGRAPHY, C.CMD_ID_INSERT_BIBLIO, _command);
-        CommandManager.register(S.COMMAND_GENERATE_BIBLIOGRAPHY, C.CMD_ID_GENERATE_BIBLIO, _command);
+        CommandManager.register(S.COMMAND_INSERT_CITATION,       C.CMD_ID_INSERT_CITE,     command);
+        CommandManager.register(S.COMMAND_INSERT_BIBLIOGRAPHY,   C.CMD_ID_INSERT_BIBLIO,   command);
+        CommandManager.register(S.COMMAND_GENERATE_BIBLIOGRAPHY, C.CMD_ID_GENERATE_BIBLIO, command);
 
-        CommandManager.register(S.COMMAND_ZOTERO_SETTINGS, C.CMD_ID_SHOW_SETTINGS, _command);
-        CommandManager.register(S.COMMAND_CLEAR_ALL_RESULTS, C.CMD_ID_CLEAR_ALL, _command);
+        CommandManager.register(S.COMMAND_ZOTERO_SETTINGS,       C.CMD_ID_SHOW_SETTINGS,   command);
+        CommandManager.register(S.COMMAND_CLEAR_ALL_RESULTS,     C.CMD_ID_CLEAR_ALL,       command);
 
-        KeyBindingManager.addBinding(C.CMD_ID_TOGGLE_PANEL, (brackets.platform === 'mac') ? C.KBD_TOGGLE_PANEL_MAC : C.KBD_TOGGLE_PANEL)
+        KeyBindingManager.addBinding(C.CMD_ID_TOGGLE_PANEL,      C.KBD_TOGGLE_PANEL);
 
     }
 
     module.exports = {
-        request: _request,
-        registerCommandsAndKeyBindings: _registerCommandsAndKeyBindings,
-    }
+        registerCommandsAndKeyBindings : registerCommandsAndKeyBindings,
+        request                        : request
+    };
 
 });

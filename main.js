@@ -4,17 +4,20 @@
  * @license MIT
  */
 
-/*jslint plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50, white: true */
-/*global $, define, brackets*/
+/*jslint vars: true, plusplus: true, devel: true, nomen: true */
+/*global define, brackets*/
 
 define(function (require, exports, module) {
-    'use strict';
+    "use strict";
 
-    var AppInit = brackets.getModule("utils/AppInit")
-    var Main = require("src/Main");
+    // Brackets modules
+    var AppInit = brackets.getModule("utils/AppInit");
+
+    // Local modules
+    var Main    = require("src/Main");
 
     AppInit.appReady(function () {
-        Main.init()
+        Main.init();
     });
 
 });

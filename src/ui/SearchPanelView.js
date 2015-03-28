@@ -1,54 +1,61 @@
+/*jslint vars: true, nomen: true */
+/*global define, brackets, $*/
 define(function (require, exports, module) {
-    'use strict';
+    "use strict";
 
     // Brackets modules
-    var _ = brackets.getModule("thirdparty/lodash")
+    var _         = brackets.getModule("thirdparty/lodash");
 
     // Local modules
-    var C = require("src/utils/Constants")
-    var Channel = require("src/utils/Channel")
-    var Events = require("src/utils/Events")
-    var PanelView = require("src/utils/PanelView")
-    var UiUtils = require("src/ui/UiUtils")
+    var PanelView = require("src/utils/PanelView"),
+        UiUtils   = require("src/ui/UiUtils"),
+        Channel   = require("src/utils/Channel"),
+        Events    = require("src/utils/Events"),
+        C         = require("src/utils/Constants");
 
-    // HTML Templates
+    // Templates and resources
     var SearchResultListTemplate = require("text!../../htmlContent/zotero-search-results.html");
 
-    function _displaySearchResults(searchResults) {
-        // clearing previous result list
-        _clearItems();
-        UiUtils.append( 'div#' + C.PANEL_VIEW_SEARCH, SearchResultListTemplate, searchResults )
-        PanelView.setActivePanel(C.PANEL_VIEW_SEARCH)
+    function clearItems(options) {
+        UiUtils.clearView("div#" + C.PANEL_VIEW_SEARCH, options);
     }
 
-    function _handleListItemClick(e) {
-        var $elem = $(e.target)
-        if ($elem.is("input")) {
-            var bibtexKey = $(e.target).attr("id")
-            var checked = $(e.target).is(":checked")
+    function displaySearchResults(searchResults) {
+        // clearing previous result list
+        clearItems();
+        UiUtils.append("div#" + C.PANEL_VIEW_SEARCH, SearchResultListTemplate, searchResults);
+        PanelView.setActivePanel(C.PANEL_VIEW_SEARCH);
+    }
 
-            Channel.Extension.trigger(Events.EVENT_ITEM_SELECTED, bibtexKey, checked)
+    function handleListItemClick(e) {
+        var $elem = $(e.target),
+            bibtexKey,
+            checked;
+
+        if ($elem.is("input")) {
+            bibtexKey = $(e.target).attr("id");
+            checked = $(e.target).is(":checked");
+
+            Channel.Extension.trigger(Events.EVT_ITEM_SELECTED, bibtexKey, checked);
         }
     }
 
-    function _clearItems(options) {
-        UiUtils.clearView( 'div#'+C.PANEL_VIEW_SEARCH, options )
-    }
+    function init($panel) {
+        /*jshint validthis: true */
+        var panelOptions = {icon: "octicon octicon-search"};
+        this.panelView = PanelView.createPanelView(C.PANEL_VIEW_SEARCH, $panel, panelOptions);
+        this.panelView.$panelView.on("click", _.bind(handleListItemClick, this));
 
-    function _init($panel) {
-        this.panelView = PanelView.createPanelView   ( C.PANEL_VIEW_SEARCH, $panel, {icon: 'octicon octicon-search'} )
-        this.panelView.$panelView.on( 'click', _.bind(_handleListItemClick, this) )
-
-        Channel.UI.comply           ( Events.COMMAND_DISPLAY_RESULTS,       _displaySearchResults )
-        Channel.UI.comply           ( Events.COMMAND_CLEAR_SEARCH_ITEMS,    _clearItems           )
+        Channel.UI.comply(Events.CMD_DISPLAY_RESULTS,       displaySearchResults);
+        Channel.UI.comply(Events.CMD_CLEAR_SEARCH_ITEMS,    clearItems);
     }
 
     function SearchPanelView() {
-        this.active = false
-        this.panelView = null
-        Channel.UI.comply( Events.COMMAND_SEARCH_PANELVIEW_INIT, _.bind(_init, this) )
+        this.active = false;
+        this.panelView = null;
+        Channel.UI.comply(Events.CMD_SEARCH_PANELVIEW_INIT, _.bind(init, this));
     }
 
-    module.exports = new SearchPanelView()
+    module.exports = new SearchPanelView();
 
 });

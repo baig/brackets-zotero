@@ -12,6 +12,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ### Changed
 - Updated gitignore.
+- Linted and style checked all the code.
 
 ## [0.1.6] - 2015-03-19
 

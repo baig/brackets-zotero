@@ -1,46 +1,48 @@
+/*jslint vars: true, nomen: true, plusplus: true */
+/*global define, brackets, console */
 define(function (require, exports, module) {
-    'use strict';
+    "use strict";
 
     // Brackets modules
-    var ProjectManager = brackets.getModule("project/ProjectManager")
-    var FileSystem = brackets.getModule("filesystem/FileSystem")
-    var _ = brackets.getModule("thirdparty/lodash")
+    var ProjectManager  = brackets.getModule("project/ProjectManager");
+    var FileSystem      = brackets.getModule("filesystem/FileSystem");
+    var _               = brackets.getModule("thirdparty/lodash");
 
     // Local modules
-    var settings = JSON.parse(require('text!settings.json'));
-    var C = require("src/utils/Constants")
-    var Channel = require("src/utils/Channel")
-    var Events = require("src/utils/Events")
+    var settings        = JSON.parse(require("text!settings.json"));
+    var Channel         = require("src/utils/Channel");
+    var Events          = require("src/utils/Events");
+    var C               = require("src/utils/Constants");
 
 
-    function _writeBibFile(biblioString) {
-        var bibFileFullPath = ProjectManager.getProjectRoot().fullPath + settings.bibFileName
-        var bibFile = FileSystem.getFileForPath(bibFileFullPath)
-        console.log('Writing Bibliography to file: "' + bibFileFullPath + '"')
-        bibFile.write(biblioString)
+    function writeBibFile(biblioString) {
+        var bibFileFullPath = ProjectManager.getProjectRoot().fullPath + settings.bibFileName;
+        var bibFile = FileSystem.getFileForPath(bibFileFullPath);
+        console.log('Writing Bibliography to file: "' + bibFileFullPath + '"');
+        bibFile.write(biblioString);
     }
 
     /**
      * Handlers
      */
-    function _handleGenerateBibliography() {
-        var bibliographyPromise = Channel.Zotero.request(Events.REQUEST_BIBLIOGRAPHY)
-        if (!bibliographyPromise) throw new Error("Error generating Bibliography file.")
-        bibliographyPromise.then( function (data) {
-            _writeBibFile(data.result)
-        })
+    function handleGenerateBibliography() {
+        var bibliographyPromise = Channel.Zotero.request(Events.RQT_BIBLIOGRAPHY);
+        if (!bibliographyPromise) {
+            throw new Error("Error generating Bibliography file.");
+        }
+        bibliographyPromise.then(function (data) {
+            writeBibFile(data.result);
+        });
     }
 
-    function _init() {
-//        console.log("initializing Bibliography...")
-        Channel.Extension.comply(C.CMD_ID_GENERATE_BIBLIO, _handleGenerateBibliography)
-//        console.log("initializing Bibliography...COMPLETE")
+    function init() {
+        Channel.Extension.comply(C.CMD_ID_GENERATE_BIBLIO, handleGenerateBibliography);
     }
 
     function Bibliography() {
-        Channel.Extension.on(Events.EVENT_INIT, _.bind(_init, this))
+        Channel.Extension.on(Events.EVT_INIT, _.bind(init, this));
     }
 
-    module.exports = new Bibliography()
+    module.exports = new Bibliography();
 
 });
