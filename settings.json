@@ -2,6 +2,7 @@
     "itemsWithBibtexKeyOnly": true,
     "bibtexPrefix": "bibtex:",
     "bibFileName": "refs.bib",
-    "docTypesToScanForCitationKeys": ["txt", "md"],
-    "refreshInterval": 10000
+    "docTypesToScan": ["txt", "md"],
+    "refreshInterval": 10000,
+    "bibFolderName": "brackets-zotero-bibtex-DB"
 }
