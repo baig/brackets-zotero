@@ -1,16 +1,16 @@
 /*jshint maxlen:false */
 
 define({
-    COMMAND_SHOW_ZOTERO_PANEL:      "Show Zotero Panel",
-    COMMAND_HIDE_ZOTERO_PANEL:      "Hide Zotero Panel",
-    COMMAND_TOGGLE_ZOTERO_PANEL:    "Toggle Zotero Panel",
-    COMMAND_SCAN_DOCUMENT:          "Scan Document For Citations",
-    COMMAND_INSERT_CITATION:        "Insert Citation",
-    COMMAND_INSERT_BIBLIOGRAPHY:    "Insert Bibliography",
-    COMMAND_GENERATE_BIBLIOGRAPHY:  "Generate Bibliography File",
-    COMMAND_CLEAR_ALL_RESULTS:      "Clear All Results",
-    COMMAND_ZOTERO_SETTINGS:        "Show Zotero Settings",
-    
+    CMD_SHOW_ZOTERO_PANEL:      "Show Zotero Panel",
+    CMD_HIDE_ZOTERO_PANEL:      "Hide Zotero Panel",
+    CMD_TOGGLE_ZOTERO_PANEL:    "Toggle Zotero Panel",
+    CMD_SCAN_DOCUMENT:          "Scan Document For Citations",
+    CMD_INSERT_CITATION:        "Insert Citation",
+    CMD_INSERT_BIBLIOGRAPHY:    "Insert Bibliography",
+    CMD_GENERATE_BIBLIOGRAPHY:  "Generate Bibliography File",
+    CMD_CLEAR_ALL_RESULTS:      "Clear All Results",
+    CMD_ZOTERO_SETTINGS:        "Show Zotero Settings",
+
     UI_TOOLTIP:                             "Zotero (Ctrl/Cmd+Shift+Z)",
     UI_PANEL_SEARCH_PLACEHOLDER:            "Search items in your Zotero library",
     UI_PANEL_INSERT_CITATION:               "Insert Citation(s)",

@@ -1,16 +1,16 @@
 /*jshint maxlen:false */
 
 define({
-    COMMAND_SHOW_ZOTERO_PANEL:      "Zotero-Panel anzeigen",
-    COMMAND_HIDE_ZOTERO_PANEL:      "Zotero-Panel verstecken",
-    COMMAND_TOGGLE_ZOTERO_PANEL:    "Zotero-Panel umschalten",
-    COMMAND_SCAN_DOCUMENT:          "Dokument nach Literaturangaben durchsuchen",
-    COMMAND_INSERT_CITATION:        "Literaturangabe einfügen",
-    COMMAND_INSERT_BIBLIOGRAPHY:    "Bibliografie einfügen",
-    COMMAND_GENERATE_BIBLIOGRAPHY:  "Bibliografie-Datei erstellen",
-    COMMAND_CLEAR_ALL_RESULTS:      "Alle Ergebnisse verwerfen",
-    COMMAND_ZOTERO_SETTINGS:        "Zotero-Einstellungen anzeigen",
-    
+    CMD_SHOW_ZOTERO_PANEL:      "Zotero-Panel anzeigen",
+    CMD_HIDE_ZOTERO_PANEL:      "Zotero-Panel verstecken",
+    CMD_TOGGLE_ZOTERO_PANEL:    "Zotero-Panel umschalten",
+    CMD_SCAN_DOCUMENT:          "Dokument nach Literaturangaben durchsuchen",
+    CMD_INSERT_CITATION:        "Literaturangabe einfügen",
+    CMD_INSERT_BIBLIOGRAPHY:    "Bibliografie einfügen",
+    CMD_GENERATE_BIBLIOGRAPHY:  "Bibliografie-Datei erstellen",
+    CMD_CLEAR_ALL_RESULTS:      "Alle Ergebnisse verwerfen",
+    CMD_ZOTERO_SETTINGS:        "Zotero-Einstellungen anzeigen",
+
     UI_TOOLTIP:                             "Zotero (Ctrl/Cmd+Shift+Z)",
     UI_PANEL_SEARCH_PLACEHOLDER:            "Einträge in deiner Zotero-Bibliothek suchen",
     UI_PANEL_INSERT_CITATION:               "Literaturangabe(n) einfügen",
