@@ -1,26 +1,34 @@
+/*
+ * @fileoverview    Main Zotero Panel
+ * @author          Wasif Hasan Baig <pr.wasif@gmail.com>
+ * @copyright       Wasif Hasan Baig 2015
+ * @since           0.1.0
+ * @license         MIT
+ */
+
 /*jslint vars: true, nomen: true */
 /*global define, brackets, $, Mustache */
+
 define(function (require, exports, module) {
     "use strict";
 
     // Brackets modules
-    var WorkspaceManager = brackets.getModule("view/WorkspaceManager"),
-        CommandManager   = brackets.getModule("command/CommandManager"),
-        DefaultDialogs   = brackets.getModule("widgets/DefaultDialogs"),
-        Dialogs          = brackets.getModule("widgets/Dialogs"),
-        _                = brackets.getModule("thirdparty/lodash");
+    var WorkspaceManager = brackets.getModule("view/WorkspaceManager");
+    var CommandManager   = brackets.getModule("command/CommandManager");
+    var DefaultDialogs   = brackets.getModule("widgets/DefaultDialogs");
+    var Dialogs          = brackets.getModule("widgets/Dialogs");
 
     // Local modules
-    var Channel          = require("src/utils/Channel"),
-        Events           = require("src/utils/Events"),
-        S                = require("strings"),
-        C                = require("src/utils/Constants");
+    var Channel          = require("src/utils/Channel");
+    var Events           = require("src/utils/Events");
+    var S                = require("strings");
+    var C                = require("src/utils/Constants");
 
     // Templates and resources
-    var PanelTemplate    = require("text!../../htmlContent/zotero-panel.html"),
-        icon             = require.toUrl("styles/icons/zotero.png").replace(/ /g, "%20");
+    var PanelTemplate    = require("text!../../htmlContent/zotero-panel.html");
+    var icon             = require.toUrl("styles/icons/zotero.png").replace(/ /g, "%20");
 
-    function show(Panel) {
+    function _show(Panel) {
         // show panel
         Panel.panel.show();
         // focus on query field on panel show
@@ -33,15 +41,15 @@ define(function (require, exports, module) {
         Channel.Extension.trigger(Events.EVT_PANEL_SHOWN);
     }
 
-    function clearSearchField() {
+    function _clearSearchField() {
         $(C.UI_SEARCH_INPUT).val("");
     }
 
-    function hide(Panel) {
+    function _hide(Panel) {
         // hide panel
         Panel.panel.hide();
         // clear search field
-        clearSearchField();
+        _clearSearchField();
         // clear search results list
         Channel.UI.command(Events.CMD_CLEAR_SEARCH_ITEMS);
         // remove `active` class to zotero icon
@@ -52,20 +60,20 @@ define(function (require, exports, module) {
         Channel.Extension.trigger(Events.EVT_PANEL_HIDDEN);
     }
 
-    function toggleZoteroPanel(visibilityFlag) {
+    function _toggleZoteroPanel(visibilityFlag) {
         /*jshint validthis: true */
         switch (visibilityFlag) {
         case true:
-            show(this);
+            _show(this);
             break;
         case false:
-            hide(this);
+            _hide(this);
             break;
         default:
             if (this.visible) {
-                hide(this);
+                _hide(this);
             } else {
-                show(this);
+                _show(this);
             }
         }
     }
@@ -73,12 +81,14 @@ define(function (require, exports, module) {
     function _handleSearchOnKeyUp() {
         /*jshint validthis: true */
         var query = $(this).val().trim();
+
         if (!query) {
             Channel.UI.command(Events.CMD_CLEAR_SEARCH_ITEMS, {unselected: true});
             return false;
         }
-        Channel.Zotero.command(Events.CMD_SEARCH, query);
+
         Channel.UI.complyOnce(Events.CMD_DISPLAY_ERROR, _displayErrorDialog);
+        Channel.Zotero.command(Events.CMD_SEARCH,       query);
     }
 
     function _displayErrorDialog() {
@@ -92,16 +102,16 @@ define(function (require, exports, module) {
         msg += 'See <strong>Install & Use</strong> section on <a href="http://baig.github.io';
         msg += '/brackets-zotero/">this</a> page for more detailed setup instructions.';
 
-        clearSearchField();
+        _clearSearchField();
         Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, title, msg);
     }
 
     function _clearAll() {
-        clearSearchField();
+        _clearSearchField();
         Channel.UI.command(Events.CMD_CLEAR_SEARCH_ITEMS);
     }
 
-    function isVisible() {
+    function _isPanelVisible() {
         /*jshint validthis: true */
         return this.visible;
     }
@@ -110,7 +120,7 @@ define(function (require, exports, module) {
         CommandManager.execute(e.data.cmd);
     }
 
-    function init() {
+    function _init() {
         /*jshint validthis: true */
         var $renderedTemplate = $(Mustache.render(PanelTemplate, {S: S, icon: icon})),
             $panel;
@@ -127,21 +137,20 @@ define(function (require, exports, module) {
             .on("click", C.GENERATE_BIB_BTN, {cmd: Events.CMD_GENERATE_BIBLIO}, _handlePanelEvent)
             .on("click", C.SETTINGS_BTN,     {cmd: Events.CMD_SHOW_SETTINGS},   _handlePanelEvent);
 
-        Channel.UI.comply(Events.CMD_DISPLAY_ERROR,             _displayErrorDialog);
-        Channel.UI.reply(Events.RQT_PANEL_VISIBILITY_STATUS,    _.bind(isVisible, this));
+        Channel.UI.reply(Events.RQT_PANEL_VISIBILITY_STATUS, _isPanelVisible,    this);
 
-        Channel.Extension.comply(Events.CMD_TOGGLE_PANEL, _.bind(toggleZoteroPanel, this));
-        Channel.Extension.comply(Events.CMD_HIDE_PANEL,   _.bind(toggleZoteroPanel, this, false));
-        Channel.Extension.comply(Events.CMD_CLEAR_ALL,    _clearAll);
+        Channel.Extension.comply(Events.CMD_TOGGLE_PANEL,    _toggleZoteroPanel, this);
+        Channel.Extension.comply(Events.CMD_HIDE_PANEL,      _toggleZoteroPanel, this, false);
+        Channel.Extension.comply(Events.CMD_CLEAR_ALL,       _clearAll);
 
-        Channel.UI.command(Events.CMD_SEARCH_PANELVIEW_INIT,   $panel);
-        Channel.UI.command(Events.CMD_CITE_PANELVIEW_INIT,     $panel);
+        Channel.UI.command(Events.CMD_SEARCH_PANELVIEW_INIT, $panel);
+        Channel.UI.command(Events.CMD_CITE_PANELVIEW_INIT,   $panel);
     }
 
     function Panel() {
+        this.panel   = null;
         this.visible = false;
-        this.panel = null;
-        Channel.Extension.on(Events.EVT_INIT, _.bind(init, this));
+        Channel.Extension.on(Events.EVT_INIT, _init, this);
     }
 
     module.exports = new Panel();
