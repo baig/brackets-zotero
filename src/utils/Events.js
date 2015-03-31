@@ -33,17 +33,23 @@ define(function (require, exports, module) {
         // Document.js
         RQT_PANEL_VISIBILITY_STATUS : "panel:visibility:status",
         EVT_CITEKEYS_FOUND          : "document:citekeys:found",
+        CMD_INSERT_BIBLIO           : "baig.zoteroplugin.bibliography.insert",
         RQT_BIBLIOGRAPHY            : "zotero:bibliography",
+        CMD_INSERT_CITE             : "baig.zoteroplugin.citation.insert",
         RQT_CITE_STRING             : "zotero:citestring",
 
         // Bibliography.js
-        RQT_CITEKEYS : "zotero:citekeys",
+        CMD_GENERATE_BIBLIO  : "baig.zoteroplugin.bibliography.generate",
+        RQT_CITEKEYS         : "zotero:citekeys",
 
         // Panel.js
         CMD_SEARCH_PANELVIEW_INIT : "searchpanelview:init",
         CMD_CITE_PANELVIEW_INIT   : "citepanelview:init",
         CMD_CLEAR_SEARCH_ITEMS    : "searchpanelview:clear:items",
         CMD_TOGGLE_ICON_STATE     : "main:toggle:icon:state",
+        CMD_TOGGLE_PANEL          : "baig.zoteroplugin.panel.toggle",
+        CMD_HIDE_PANEL            : "baig.zoteroplugin.panel.hide",
+        CMD_CLEAR_ALL             : "baig.zoteroplugin.clear.all",
         EVT_PANEL_HIDDEN          : "panel:hidden",
         EVT_PANEL_SHOWN           : "panel:shown",
         CMD_SEARCH                : "zotero:search",
@@ -53,6 +59,10 @@ define(function (require, exports, module) {
         EVT_ITEM_SELECTED     : "searchpanelview:item:selected",
 
         // CitePanelView.js
-        CMD_HIGHLIGHT_CITES : "document:highlight:cites"
+        CMD_HIGHLIGHT_CITES : "document:highlight:cites",
+
+        // SettingsDialog.js
+        CMD_SHOW_SETTINGS   : "baig.zoteroplugin.settings.show"
+
     };
 });

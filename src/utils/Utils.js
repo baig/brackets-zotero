@@ -9,6 +9,7 @@ define(function (require, exports, module) {
 
     // Local modules
     var Channel           = require("src/utils/Channel"),
+        Events            = require("src/utils/Events"),
         C                 = require("src/utils/Constants"),
         S                 = require("strings");
 
@@ -33,18 +34,17 @@ define(function (require, exports, module) {
 
     function registerCommandsAndKeyBindings() {
 
-        CommandManager.register(S.COMMAND_SHOW_ZOTERO_PANEL,     C.CMD_ID_SHOW_PANEL,      command);
-        CommandManager.register(S.COMMAND_HIDE_ZOTERO_PANEL,     C.CMD_ID_HIDE_PANEL,      command);
-        CommandManager.register(S.COMMAND_TOGGLE_ZOTERO_PANEL,   C.CMD_ID_TOGGLE_PANEL,    command);
+        CommandManager.register(S.CMD_HIDE_ZOTERO_PANEL,     Events.CMD_HIDE_PANEL,      command);
+        CommandManager.register(S.CMD_TOGGLE_ZOTERO_PANEL,   Events.CMD_TOGGLE_PANEL,    command);
 
-        CommandManager.register(S.COMMAND_INSERT_CITATION,       C.CMD_ID_INSERT_CITE,     command);
-        CommandManager.register(S.COMMAND_INSERT_BIBLIOGRAPHY,   C.CMD_ID_INSERT_BIBLIO,   command);
-        CommandManager.register(S.COMMAND_GENERATE_BIBLIOGRAPHY, C.CMD_ID_GENERATE_BIBLIO, command);
+        CommandManager.register(S.CMD_INSERT_CITATION,       Events.CMD_INSERT_CITE,     command);
+        CommandManager.register(S.CMD_INSERT_BIBLIOGRAPHY,   Events.CMD_INSERT_BIBLIO,   command);
+        CommandManager.register(S.CMD_GENERATE_BIBLIOGRAPHY, Events.CMD_GENERATE_BIBLIO, command);
 
-        CommandManager.register(S.COMMAND_ZOTERO_SETTINGS,       C.CMD_ID_SHOW_SETTINGS,   command);
-        CommandManager.register(S.COMMAND_CLEAR_ALL_RESULTS,     C.CMD_ID_CLEAR_ALL,       command);
+        CommandManager.register(S.CMD_ZOTERO_SETTINGS,       Events.CMD_SHOW_SETTINGS,   command);
+        CommandManager.register(S.CMD_CLEAR_ALL_RESULTS,     Events.CMD_CLEAR_ALL,       command);
 
-        KeyBindingManager.addBinding(C.CMD_ID_TOGGLE_PANEL,      C.KBD_TOGGLE_PANEL);
+        KeyBindingManager.addBinding(Events.CMD_TOGGLE_PANEL,    C.KBD_TOGGLE_PANEL);
 
     }
 

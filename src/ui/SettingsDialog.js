@@ -10,7 +10,6 @@ define(function (require, exports, module) {
     // Local modules
     var Channel = require("src/utils/Channel"),
         Events  = require("src/utils/Events"),
-        C       = require("src/utils/Constants"),
         S       = require("strings");
 
     // Templates and resources
@@ -25,7 +24,7 @@ define(function (require, exports, module) {
     }
 
     function init() {
-        Channel.Extension.comply(C.CMD_ID_SHOW_SETTINGS, handleShowSettingsDialog);
+        Channel.Extension.comply(Events.CMD_SHOW_SETTINGS, handleShowSettingsDialog);
     }
 
     function SettingsDialog() {

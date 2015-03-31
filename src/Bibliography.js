@@ -12,8 +12,6 @@ define(function (require, exports, module) {
     var settings        = JSON.parse(require("text!settings.json"));
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
-    var C               = require("src/utils/Constants");
-
 
     function writeBibFile(biblioString) {
         var bibFileFullPath = ProjectManager.getProjectRoot().fullPath + settings.bibFileName;
@@ -36,7 +34,7 @@ define(function (require, exports, module) {
     }
 
     function init() {
-        Channel.Extension.comply(C.CMD_ID_GENERATE_BIBLIO, handleGenerateBibliography);
+        Channel.Extension.comply(Events.CMD_GENERATE_BIBLIO, handleGenerateBibliography);
     }
 
     function Bibliography() {

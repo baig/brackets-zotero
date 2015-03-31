@@ -15,6 +15,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Linted and style checked all the code.
 - `src/Document.js` cleaned up.
 - Shortened `COMMAND` to `CMD`.
+- Moved Command IDs from `src/utils/Constants` to `src/utils/Events`.
 
 ## [0.1.6] - 2015-03-19
 

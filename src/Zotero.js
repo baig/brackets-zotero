@@ -170,7 +170,7 @@ define(function (require, exports, module) {
         return searchResults;
     }
 
-    function handleSearch(query) {
+    function _handleSearch(query) {
         /*jshint validthis: true */
         _search(query).then(function (response) {
             var searchResults = (!!response.result) ? _postprocessData(response.result, ", ") : [];
@@ -206,7 +206,7 @@ define(function (require, exports, module) {
      * @returns {Promise|boolean} Returns a promise if keys[] is not empty;
      *                            otherwise returns false
      */
-    function requestBibliography(citationKeys, format) {
+    function _requestBibliography(citationKeys, format) {
         /*jshint validthis: true */
         var citations = citationKeys || ((this && this.citations) ? this.citations : false);
         format = format || "text";
@@ -276,7 +276,7 @@ define(function (require, exports, module) {
         return citeString;
     }
 
-    function handleCiteStringRequest() {
+    function _handleCiteStringRequest() {
         /*jshint validthis: true */
         this.citations = _.union(this.citations, this.keysToAdd);
         return _generateCiteString(this.keysToAdd);
@@ -290,7 +290,7 @@ define(function (require, exports, module) {
         this.citations = keys;
 
         // requesting bibliography
-        var biblioJsonPromise = requestBibliography(keys);
+        var biblioJsonPromise = _requestBibliography(keys);
         biblioJsonPromise.then(function (data) {
             if (!data || !data.result) {
                 return false;
@@ -345,10 +345,10 @@ define(function (require, exports, module) {
 
     function _init() {
         /*jshint validthis: true */
-        Channel.Zotero.on(Events.EVT_CITEKEYS_FOUND,    _.bind(_handleCitesFromDocument, this));
-        Channel.Zotero.reply(Events.RQT_CITE_STRING,  _.bind(handleCiteStringRequest, this));
-        Channel.Zotero.reply(Events.RQT_BIBLIOGRAPHY, _.bind(requestBibliography, this));
-        Channel.Zotero.comply(Events.CMD_SEARCH,      _.bind(handleSearch, this));
+        Channel.Zotero.on(Events.EVT_CITEKEYS_FOUND,  _.bind(_handleCitesFromDocument, this));
+        Channel.Zotero.reply(Events.RQT_CITE_STRING,  _.bind(_handleCiteStringRequest, this));
+        Channel.Zotero.reply(Events.RQT_BIBLIOGRAPHY, _.bind(_requestBibliography, this));
+        Channel.Zotero.comply(Events.CMD_SEARCH,      _.bind(_handleSearch, this));
 
         Channel.Extension.on(Events.EVT_PANELVIEW_CLEARED, _.bind(_clearSelection, this));
         Channel.Extension.on(Events.EVT_ITEM_SELECTED,     _.bind(_updateSelection, this));

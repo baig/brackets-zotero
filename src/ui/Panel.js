@@ -80,7 +80,7 @@ define(function (require, exports, module) {
         Channel.Zotero.command(Events.CMD_SEARCH, query);
     }
 
-    function displayErrorDialog() {
+    function _displayErrorDialog() {
         var title = "Unable to Search Zotero Library!",
             msg = "";
 
@@ -94,7 +94,7 @@ define(function (require, exports, module) {
         Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, title, msg);
     }
 
-    function clearAll() {
+    function _clearAll() {
         clearSearchField();
         Channel.UI.command(Events.CMD_CLEAR_SEARCH_ITEMS);
     }
@@ -118,19 +118,19 @@ define(function (require, exports, module) {
 
         $panel
             .on("keyup", C.UI_SEARCH_INPUT,  _handleSearchOnKeyUp)
-            .on("click", C.CLOSE_BTN,        {cmd: C.CMD_ID_HIDE_PANEL},      _handlePanelEvent)
-            .on("click", C.CLEAR_BTN,        {cmd: C.CMD_ID_CLEAR_ALL},       _handlePanelEvent)
-            .on("click", C.INSERT_BTN,       {cmd: C.CMD_ID_INSERT_CITE},     _handlePanelEvent)
-            .on("click", C.INSERT_BIB_BTN,   {cmd: C.CMD_ID_INSERT_BIBLIO},   _handlePanelEvent)
-            .on("click", C.GENERATE_BIB_BTN, {cmd: C.CMD_ID_GENERATE_BIBLIO}, _handlePanelEvent)
-            .on("click", C.SETTINGS_BTN,     {cmd: C.CMD_ID_SHOW_SETTINGS},   _handlePanelEvent);
+            .on("click", C.CLOSE_BTN,        {cmd: Events.CMD_HIDE_PANEL},      _handlePanelEvent)
+            .on("click", C.CLEAR_BTN,        {cmd: Events.CMD_CLEAR_ALL},       _handlePanelEvent)
+            .on("click", C.INSERT_BTN,       {cmd: Events.CMD_INSERT_CITE},     _handlePanelEvent)
+            .on("click", C.INSERT_BIB_BTN,   {cmd: Events.CMD_INSERT_BIBLIO},   _handlePanelEvent)
+            .on("click", C.GENERATE_BIB_BTN, {cmd: Events.CMD_GENERATE_BIBLIO}, _handlePanelEvent)
+            .on("click", C.SETTINGS_BTN,     {cmd: Events.CMD_SHOW_SETTINGS},   _handlePanelEvent);
 
-        Channel.UI.comply(Events.CMD_DISPLAY_ERROR,             displayErrorDialog);
+        Channel.UI.comply(Events.CMD_DISPLAY_ERROR,             _displayErrorDialog);
         Channel.UI.reply(Events.RQT_PANEL_VISIBILITY_STATUS,    _.bind(isVisible, this));
 
-        Channel.Extension.comply(C.CMD_ID_TOGGLE_PANEL, _.bind(toggleZoteroPanel, this));
-        Channel.Extension.comply(C.CMD_ID_HIDE_PANEL,   _.bind(toggleZoteroPanel, this, false));
-        Channel.Extension.comply(C.CMD_ID_CLEAR_ALL,    clearAll);
+        Channel.Extension.comply(Events.CMD_TOGGLE_PANEL, _.bind(toggleZoteroPanel, this));
+        Channel.Extension.comply(Events.CMD_HIDE_PANEL,   _.bind(toggleZoteroPanel, this, false));
+        Channel.Extension.comply(Events.CMD_CLEAR_ALL,    _clearAll);
 
         Channel.UI.command(Events.CMD_SEARCH_PANELVIEW_INIT,   $panel);
         Channel.UI.command(Events.CMD_CITE_PANELVIEW_INIT,     $panel);

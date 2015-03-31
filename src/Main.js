@@ -21,7 +21,6 @@ define(function (require, exports, module) {
     var Channel         = require("src/utils/Channel"),
         Events          = require("src/utils/Events"),
         Utils           = require("src/utils/Utils"),
-        C               = require("src/utils/Constants"),
         S               = require("strings");
 
     // Local requires
@@ -44,12 +43,12 @@ define(function (require, exports, module) {
         Channel.Extension.trigger(Events.EVT_EDITOR_CHANGE, newEd);
     });
 
-    function handleZoteroIconClassToggle() {
+    function _handleZoteroIconClassToggle() {
         $icon.toggleClass("active");
     }
 
-    function handlePanelToggle() {
-        CommandManager.execute(C.CMD_ID_TOGGLE_PANEL);
+    function _handlePanelToggle() {
+        CommandManager.execute(Events.CMD_TOGGLE_PANEL);
     }
 
     function init() {
@@ -60,9 +59,9 @@ define(function (require, exports, module) {
         // Displaying icon in the Project Panel and attach `click` handler
         $icon = $('<a id="zotero-toolbar-icon" href="#" title="' + S.UI_TOOLTIP + '"></a>')
                 .appendTo($("#main-toolbar .buttons"))
-                .on("click", handlePanelToggle);
+                .on("click", _handlePanelToggle);
         // complying to toggle class on icon
-        Channel.Extension.comply(Events.CMD_TOGGLE_ICON_STATE, handleZoteroIconClassToggle);
+        Channel.Extension.comply(Events.CMD_TOGGLE_ICON_STATE, _handleZoteroIconClassToggle);
         // wake up everyone
         Channel.Extension.trigger(Events.EVT_INIT);
     }
