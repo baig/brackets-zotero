@@ -78,6 +78,7 @@ define(function (require, exports, module) {
             return false;
         }
         Channel.Zotero.command(Events.CMD_SEARCH, query);
+        Channel.UI.complyOnce(Events.CMD_DISPLAY_ERROR, _displayErrorDialog);
     }
 
     function _displayErrorDialog() {
@@ -91,6 +92,7 @@ define(function (require, exports, module) {
         msg += 'See <strong>Install & Use</strong> section on <a href="http://baig.github.io';
         msg += '/brackets-zotero/">this</a> page for more detailed setup instructions.';
 
+        clearSearchField();
         Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, title, msg);
     }
 
