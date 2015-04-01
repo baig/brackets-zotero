@@ -20,7 +20,7 @@ define({
 
     SETTINGS_TITLE:             "Zotero-Einstellungen",
     SETTINGS_TAB_GENERAL:       "Allgemein",
-    SETTINGS_BUTTON_DEFAULTS:   "Einstellungen zurücksetzen",
-    SETTINGS_BUTTON_CANCEL:     "Abbrechen",
-    SETTINGS_BUTTON_SAVE:       "Speichern",
+    SETTINGS_BTN_DEFAULTS:      "Einstellungen zurücksetzen",
+    SETTINGS_BTN_CANCEL:        "Abbrechen",
+    SETTINGS_BTN_SAVE:          "Speichern",
 });

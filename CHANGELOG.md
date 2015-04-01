@@ -9,6 +9,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ### Added
 - Added `lint` task in gulpfile.js for linting using `JSHint` and code
   style checking using `JSCS`.
+- Added UI to specify Preferences.
 
 ### Changed
 - Updated gitignore.

@@ -1,0 +1,48 @@
+<div id="zotero-preferences" class="modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">{{S.SETTINGS_TITLE}}</h1>
+    </div>
+
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label">{{S.SETTINGS_DOCTYPES_TO_SCAN}}:</label>
+                <div class="controls">
+                    <input type="text" data-target="docTypesToScan" value="{{settings.docTypesToScan}}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">{{S.SETTINGS_BIBTEX_PREFIX}}:</label>
+                <div class="controls">
+                    <input type="text" data-target="extraFieldPrefix" value="{{settings.extraFieldPrefix}}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">{{S.SETTINGS_ITEMS_HAVING_BIBTEX_PREFIX}}:</label>
+                <div class="controls">
+                    {{#settings.itemsWithBibtexKeyOnly}}
+                        <input type="checkbox" data-target="itemsWithBibtexKeyOnly" checked>
+                    {{/settings.itemsWithBibtexKeyOnly}}
+                    {{^settings.itemsWithBibtexKeyOnly}}
+                        <input type="checkbox" data-target="itemsWithBibtexKeyOnly">
+                    {{/settings.itemsWithBibtexKeyOnly}}
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">{{S.SETTINGS_BIB_FILENAME}}:</label>
+                <div class="controls">
+                    <input type="text" data-target="bibFileName" value="{{settings.bibFileName}}">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button data-button-id="defaults" class="dialog-button btn left">{{S.SETTINGS_BTN_DEFAULTS}}</button>
+        <button data-button-id="cancel" class="dialog-button btn cancel btn-80">{{S.SETTINGS_BTN_CANCEL}}</button>
+        <button data-button-id="save" class="dialog-button btn primary btn-80">{{S.SETTINGS_BTN_SAVE}}</button>
+    </div>
+</div>
+
+
+
+

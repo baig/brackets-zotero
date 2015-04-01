@@ -1,8 +1,8 @@
 {
-    "itemsWithBibtexKeyOnly": true,
-    "bibtexPrefix": "bibtex:",
-    "bibFileName": "refs.bib",
-    "docTypesToScan": ["txt", "md"],
-    "refreshInterval": 10000,
-    "bibFolderName": "brackets-zotero-bibtex-DB"
+    "itemsWithBibtexKeyOnly" : true,
+    "extraFieldPrefix"       : "bibtex:",
+    "docTypesToScan"         : "txt md",
+    "bibFolderName"          : "brackets-zotero-bibtex-DB",
+    "scanInterval"           : 10000,
+    "bibFileName"            : "refs.bib"
 }

@@ -24,13 +24,15 @@ define(function (require, exports, module) {
         S               = require("strings");
 
     // Local requires
-    require("src/Zotero");
-    require("src/ui/Panel");
-    require("src/ui/SearchPanelView");
-    require("src/ui/CitePanelView");
-    require("src/Document");
-    require("src/Bibliography");
-    require("src/ui/SettingsDialog");
+    require([
+        "src/Zotero",
+        "src/ui/Panel",
+        "src/ui/SearchPanelView",
+        "src/ui/CitePanelView",
+        "src/Document",
+        "src/Bibliography",
+        "src/ui/PreferencesDialog"
+    ]);
 
     // private variables
     var $icon = null;

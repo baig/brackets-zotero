@@ -58,7 +58,7 @@ define(function (require, exports, module) {
      */
     function _postprocessData(arrayOfObjects, authorNameSeparator) {
         _.forEach(arrayOfObjects, function (objs, idx, collection) {
-            var regxp = new RegExp(settings.bibtexPrefix + "[ ]+[a-zA-Z0-9-]+");
+            var regxp = new RegExp(settings.extraFieldPrefix + "[ ]+[a-zA-Z0-9-]+");
             // Checking if extra field is empty
             objs.bibtexKey = "";
             if (objs.extra && _.isString(objs.extra)) {
