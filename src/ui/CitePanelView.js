@@ -13,15 +13,11 @@ define(function (require, exports, module) {
     // Templates and resources
     var ExistingCitesTemplate = require("text!../../htmlContent/zotero-existing-citations.html");
 
-    // Local requires
-    require("src/thirdparty/Notify");
-
     function _handleExistingCitesDisplay(existingCites) {
         // clearing existing citations
         $("div#" + C.PANEL_VIEW_CITATION).children().remove();
         UiUtils.append("div#" + C.PANEL_VIEW_CITATION, ExistingCitesTemplate, existingCites);
         PanelView.setActivePanel(C.PANEL_VIEW_CITATION);
-        notify("Citations found in this document!", "grey", true);
     }
 
     function _handleListItemClick(e) {

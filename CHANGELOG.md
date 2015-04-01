@@ -23,6 +23,9 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 ### Fixed
 - Multiple Error Dialogs popping up when Zotero not running.
 
+### Removed
+- Removed notification about finding existing citations.
+
 ## [0.1.6] - 2015-03-19
 
 ### Added
