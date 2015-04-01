@@ -18,6 +18,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Shortened `COMMAND` to `CMD`.
 - Moved Command IDs from `src/utils/Constants` to `src/utils/Events`.
 - Annotated and cleaned up `src/ui/Panel`.
+- Simplified and cleaned up code in multiple places.
 
 ### Fixed
 - Multiple Error Dialogs popping up when Zotero not running.

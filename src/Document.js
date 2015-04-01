@@ -216,14 +216,14 @@ define(function (require, exports, module) {
         });
     }
 
-    function init() {
+    function _init() {
         /*jshint validthis: true */
-        Channel.Document.comply(Events.CMD_HIGHLIGHT_CITES,   _.bind(_handleHighlighting, this));
-        Channel.Extension.on(Events.EVT_PANEL_SHOWN,          _.bind(_handleFileScanning, this));
-        Channel.Extension.on(Events.EVT_EDITOR_CHANGE,        _.bind(_handleFileScanning, this));
+        Channel.Document.comply(Events.CMD_HIGHLIGHT_CITES, _handleHighlighting, this);
+        Channel.Extension.on(Events.EVT_PANEL_SHOWN,        _handleFileScanning, this);
+        Channel.Extension.on(Events.EVT_EDITOR_CHANGE,      _handleFileScanning, this);
 
-        Channel.Extension.comply(Events.CMD_INSERT_CITE,      _handleCiteInsertion);
-        Channel.Extension.comply(Events.CMD_INSERT_BIBLIO,    _handleBiblioInsertion);
+        Channel.Extension.comply(Events.CMD_INSERT_CITE,    _handleCiteInsertion);
+        Channel.Extension.comply(Events.CMD_INSERT_BIBLIO,  _handleBiblioInsertion);
     }
 
     function Document() {
@@ -231,7 +231,7 @@ define(function (require, exports, module) {
         this.extractedKeys = [];
         this.keysLocationHash = {};
 
-        Channel.Extension.on(Events.EVT_INIT, _.bind(init, this));
+        Channel.Extension.on(Events.EVT_INIT, _init, this);
     }
 
     // exporting the singleton Document object

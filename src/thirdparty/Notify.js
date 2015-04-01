@@ -30,7 +30,6 @@ function notify(text, color, removePreviousOnes, icon, dismiss) {
 
     if (removePreviousOnes) {
         _clearTimeOuts(timeouts)
-        console.log(timeouts)
         $container.children().remove()
     }
 

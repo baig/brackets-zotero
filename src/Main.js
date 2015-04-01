@@ -53,7 +53,7 @@ define(function (require, exports, module) {
         CommandManager.execute(Events.CMD_TOGGLE_PANEL);
     }
 
-    function init() {
+    function _init() {
         // registering all commands to use Extension-wide Radio Channel
         Utils.registerCommandsAndKeyBindings();
         // loading octicons css
@@ -69,7 +69,7 @@ define(function (require, exports, module) {
     }
 
     module.exports = {
-        init : init
+        init : _init
     };
 
 });

@@ -67,7 +67,7 @@ define(function (require, exports, module) {
         return this.id === activePanel;
     };
 
-    function setActivePanel(panelId) {
+    function _setActivePanel(panelId) {
         if (activePanel === panelId) {
             return;
         }
@@ -95,7 +95,7 @@ define(function (require, exports, module) {
         activePanel = panelId;
     }
 
-    function getActivePanel() {
+    function _getActivePanel() {
         return activePanel;
     }
 
@@ -106,7 +106,7 @@ define(function (require, exports, module) {
             return false;
         }
         panelId = $button.attr("data-panel-view-id");
-        setActivePanel(panelId);
+        _setActivePanel(panelId);
     }
 
     /**
@@ -120,7 +120,7 @@ define(function (require, exports, module) {
      * @param   {Number}       opts.width  Width of the Header in pixels. Default is 30
      * @returns {PanelView}    The newly created PanelView or null.
      */
-    function createPanelView(id, $panel, opts) {
+    function _createPanelView(id, $panel, opts) {
         // `panelview.less` is required by this file
         ExtensionUtils.loadStyleSheet(module, "../../styles/panelview.less");
 
@@ -187,9 +187,9 @@ define(function (require, exports, module) {
 
     // Exposing public API
     module.exports = {
-        createPanelView : createPanelView,
-        setActivePanel  : setActivePanel,
-        getActivePanel  : getActivePanel,
+        createPanelView : _createPanelView,
+        setActivePanel  : _setActivePanel,
+        getActivePanel  : _getActivePanel,
         SIDE            : SIDE
     };
 });

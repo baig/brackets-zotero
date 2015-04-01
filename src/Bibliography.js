@@ -6,7 +6,6 @@ define(function (require, exports, module) {
     // Brackets modules
     var ProjectManager  = brackets.getModule("project/ProjectManager");
     var FileSystem      = brackets.getModule("filesystem/FileSystem");
-    var _               = brackets.getModule("thirdparty/lodash");
 
     // Local modules
     var settings        = JSON.parse(require("text!settings.json"));
@@ -23,7 +22,7 @@ define(function (require, exports, module) {
     /**
      * Handlers
      */
-    function handleGenerateBibliography() {
+    function _handleBiblioGeneration() {
         var bibliographyPromise = Channel.Zotero.request(Events.RQT_BIBLIOGRAPHY);
         if (!bibliographyPromise) {
             throw new Error("Error generating Bibliography file.");
@@ -33,12 +32,12 @@ define(function (require, exports, module) {
         });
     }
 
-    function init() {
-        Channel.Extension.comply(Events.CMD_GENERATE_BIBLIO, handleGenerateBibliography);
+    function _init() {
+        Channel.Extension.comply(Events.CMD_GENERATE_BIBLIO, _handleBiblioGeneration);
     }
 
     function Bibliography() {
-        Channel.Extension.on(Events.EVT_INIT, _.bind(init, this));
+        Channel.Extension.on(Events.EVT_INIT, _init, this);
     }
 
     module.exports = new Bibliography();

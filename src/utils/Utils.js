@@ -19,12 +19,12 @@ define(function (require, exports, module) {
      * to the command must listen to the desired CMD_ID on the Extension-wide
      * Radio Channel.
      */
-    function command() {
+    function _command() {
         /*jshint validthis: true */
         Channel.Extension.command(this._id);
     }
 
-    function request(data) {
+    function _request(data) {
         return $.ajax({
             type : "POST",
             url  : C.QUERY_URL,
@@ -32,25 +32,25 @@ define(function (require, exports, module) {
         });
     }
 
-    function registerCommandsAndKeyBindings() {
+    function _registerCommandsAndKeyBindings() {
 
-        CommandManager.register(S.CMD_HIDE_ZOTERO_PANEL,     Events.CMD_HIDE_PANEL,      command);
-        CommandManager.register(S.CMD_TOGGLE_ZOTERO_PANEL,   Events.CMD_TOGGLE_PANEL,    command);
+        CommandManager.register(S.CMD_HIDE_ZOTERO_PANEL,     Events.CMD_HIDE_PANEL,      _command);
+        CommandManager.register(S.CMD_TOGGLE_ZOTERO_PANEL,   Events.CMD_TOGGLE_PANEL,    _command);
 
-        CommandManager.register(S.CMD_INSERT_CITATION,       Events.CMD_INSERT_CITE,     command);
-        CommandManager.register(S.CMD_INSERT_BIBLIOGRAPHY,   Events.CMD_INSERT_BIBLIO,   command);
-        CommandManager.register(S.CMD_GENERATE_BIBLIOGRAPHY, Events.CMD_GENERATE_BIBLIO, command);
+        CommandManager.register(S.CMD_INSERT_CITATION,       Events.CMD_INSERT_CITE,     _command);
+        CommandManager.register(S.CMD_INSERT_BIBLIOGRAPHY,   Events.CMD_INSERT_BIBLIO,   _command);
+        CommandManager.register(S.CMD_GENERATE_BIBLIOGRAPHY, Events.CMD_GENERATE_BIBLIO, _command);
 
-        CommandManager.register(S.CMD_ZOTERO_SETTINGS,       Events.CMD_SHOW_SETTINGS,   command);
-        CommandManager.register(S.CMD_CLEAR_ALL_RESULTS,     Events.CMD_CLEAR_ALL,       command);
+        CommandManager.register(S.CMD_ZOTERO_SETTINGS,       Events.CMD_SHOW_SETTINGS,   _command);
+        CommandManager.register(S.CMD_CLEAR_ALL_RESULTS,     Events.CMD_CLEAR_ALL,       _command);
 
         KeyBindingManager.addBinding(Events.CMD_TOGGLE_PANEL,    C.KBD_TOGGLE_PANEL);
 
     }
 
     module.exports = {
-        registerCommandsAndKeyBindings : registerCommandsAndKeyBindings,
-        request                        : request
+        registerCommandsAndKeyBindings : _registerCommandsAndKeyBindings,
+        request                        : _request
     };
 
 });

@@ -112,7 +112,7 @@ define(function (require, exports, module) {
      *                                               in the Zotero object
      * @returns {{bibtexKey:string}[]} Returns back the mutated searchResults array of objects
      */
-    function removeAlreadySelectedItems(searchResults, prevKeys) {
+    function _removeAlreadySelectedItems(searchResults, prevKeys) {
         _.forEach(prevKeys, function (bibtexKey) {
             searchResults = _.reject(searchResults, {
                 bibtexKey : bibtexKey
@@ -127,7 +127,7 @@ define(function (require, exports, module) {
      * @param   {Object[]} selectedItems the selected items
      * @returns {Object[]} the search results with selected items at the top
      */
-    function pushSelectedItemsToTop(searchResults, selectedItems) {
+    function _pushSelectedItemsToTop(searchResults, selectedItems) {
         _.forEachRight(selectedItems, function (item) {
             searchResults.unshift(item);
         });
@@ -141,7 +141,7 @@ define(function (require, exports, module) {
         return surroundingStr[0] + wrappedMatchedStr + surroundingStr[1];
     }
 
-    function highlightSearchTerms(query, searchResults) {
+    function _highlightSearchTerms(query, searchResults) {
         var terms = query.split(" ");
         terms = _.filter(terms, function (term) {
                     return term.length > 1;
@@ -176,14 +176,14 @@ define(function (require, exports, module) {
             var searchResults = (!!response.result) ? _postprocessData(response.result, ", ") : [];
             this.results = searchResults;
 
-            searchResults = removeAlreadySelectedItems(searchResults, this.keysToAdd);
+            searchResults = _removeAlreadySelectedItems(searchResults, this.keysToAdd);
             // console.log(this.keysToAdd, searchResults)
 
             if (!_.isEmpty(this.selected)) {
-                searchResults = pushSelectedItemsToTop(searchResults, this.selected);
+                searchResults = _pushSelectedItemsToTop(searchResults, this.selected);
             }
 
-            searchResults = highlightSearchTerms(query, searchResults);
+            searchResults = _highlightSearchTerms(query, searchResults);
 
             searchResults = {
                 results : searchResults
@@ -345,13 +345,13 @@ define(function (require, exports, module) {
 
     function _init() {
         /*jshint validthis: true */
-        Channel.Zotero.on(Events.EVT_CITEKEYS_FOUND,  _.bind(_handleCitesFromDocument, this));
-        Channel.Zotero.reply(Events.RQT_CITE_STRING,  _.bind(_handleCiteStringRequest, this));
-        Channel.Zotero.reply(Events.RQT_BIBLIOGRAPHY, _.bind(_requestBibliography, this));
-        Channel.Zotero.comply(Events.CMD_SEARCH,      _.bind(_handleSearch, this));
+        Channel.Zotero.on(Events.EVT_CITEKEYS_FOUND,       _handleCitesFromDocument, this);
+        Channel.Zotero.reply(Events.RQT_CITE_STRING,       _handleCiteStringRequest, this);
+        Channel.Zotero.reply(Events.RQT_BIBLIOGRAPHY,      _requestBibliography,     this);
+        Channel.Zotero.comply(Events.CMD_SEARCH,           _handleSearch,            this);
 
-        Channel.Extension.on(Events.EVT_PANELVIEW_CLEARED, _.bind(_clearSelection, this));
-        Channel.Extension.on(Events.EVT_ITEM_SELECTED,     _.bind(_updateSelection, this));
+        Channel.Extension.on(Events.EVT_PANELVIEW_CLEARED, _clearSelection,          this);
+        Channel.Extension.on(Events.EVT_ITEM_SELECTED,     _updateSelection,         this);
     }
 
     function Zotero() {
@@ -360,7 +360,7 @@ define(function (require, exports, module) {
         this.selected   = []; // Selected Zotero Items with `selected` property set to true
         this.results    = []; // Search results from the server
 
-        Channel.Extension.on(Events.EVT_INIT, _.bind(_init, this));
+        Channel.Extension.on(Events.EVT_INIT, _init, this);
     }
 
     module.exports = new Zotero();

@@ -6,7 +6,7 @@ define(function (require, exports, module) {
     var Channel = require("src/utils/Channel"),
         Events  = require("src/utils/Events");
 
-    function clearView(selector, options) {
+    function _clearView(selector, options) {
         var removeUnselectedOnly = (options) ? options.unselected : false;
         if (removeUnselectedOnly) {
             // Remove only unselected items
@@ -18,7 +18,7 @@ define(function (require, exports, module) {
         }
     }
 
-    function append(selector, template, data) {
+    function _append(selector, template, data) {
         if (data) {
             $(selector).append(Mustache.render(template, data));
         } else {
@@ -27,7 +27,7 @@ define(function (require, exports, module) {
     }
 
     module.exports = {
-        clearView : clearView,
-        append    : append
+        clearView : _clearView,
+        append    : _append
     };
 });
