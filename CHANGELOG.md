@@ -74,6 +74,8 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Contents of the toolbar pushed little bit to the right
   to align with the left edge of the Panel View.
 - Moved the extension intialization code to `src/Main.js`.
+- Now using Bracket's Preference Manager to store preferences
+  instead of settings.json.
 
 ### Removed
 - Removed `utils/EventTranslator.js`. This module's

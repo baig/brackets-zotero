@@ -21,6 +21,7 @@ define(function (require, exports, module) {
     var settings        = JSON.parse(require("text!settings.json"));
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
+    var Prefs           = require("src/Preferences");
     var C               = require("src/utils/Constants");
 
     function insertText(string) {
@@ -166,7 +167,7 @@ define(function (require, exports, module) {
 
         var fileExtension = getFileExtension(editor);
 
-        if (!_.contains(settings.docTypesToScan, fileExtension)) {
+        if (!_.contains(Prefs.get("docTypesToScan"), fileExtension)) {
             return false;
         }
 

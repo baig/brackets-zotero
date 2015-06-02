@@ -11,9 +11,10 @@ define(function (require, exports, module) {
     var settings        = JSON.parse(require("text!settings.json"));
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
+    var Prefs            = require("src/Preferences");
 
     function writeBibFile(biblioString) {
-        var bibFileFullPath = ProjectManager.getProjectRoot().fullPath + settings.bibFileName;
+        var bibFileFullPath = ProjectManager.getProjectRoot().fullPath + Prefs.get("bibFileName");
         var bibFile = FileSystem.getFileForPath(bibFileFullPath);
         console.log('Writing Bibliography to file: "' + bibFileFullPath + '"');
         bibFile.write(biblioString);

@@ -23,6 +23,7 @@ define(function (require, exports, module) {
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
     var Utils           = require("src/utils/Utils");
+    var Prefs           = require("src/Preferences");
 
     /**
      * Search Zotero library using the given `query`.
@@ -58,7 +59,7 @@ define(function (require, exports, module) {
      */
     function _postprocessData(arrayOfObjects, authorNameSeparator) {
         _.forEach(arrayOfObjects, function (objs, idx, collection) {
-            var regxp = new RegExp(settings.extraFieldPrefix + "[ ]+[a-zA-Z0-9-]+");
+            var regxp = new RegExp(Prefs.get("extraFieldPrefix") + "[ ]+[a-zA-Z0-9-]+");
             // Checking if extra field is empty
             objs.bibtexKey = "";
             if (objs.extra && _.isString(objs.extra)) {
@@ -96,7 +97,7 @@ define(function (require, exports, module) {
         });
 
         // removing items without BibTeX Key if `itemsWithBibtexKeyOnly` setting flag is true
-        if (settings.itemsWithBibtexKeyOnly) {
+        if (Prefs.get("itemsWithBibtexKeyOnly")) {
             arrayOfObjects = _.reject(arrayOfObjects, {
                 bibtexKey : ""
             });
