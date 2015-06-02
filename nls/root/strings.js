@@ -25,6 +25,10 @@ define({
     SETTINGS_BTN_DEFAULTS               : "Restore Defaults",
     SETTINGS_BIB_FILENAME               : "BibTeX file name",
     SETTINGS_BIBTEX_PREFIX              : "BibTeX prefix in Zotero's extra field",
+    SETTINGS_CITESTR_OPEN               : "Cite key opening delimiter",
+    SETTINGS_CITESTR_CLOSE              : "Cite key closing delimiter",
+    SETTINGS_CITESTR_PREFIX             : "Cite key prefix",
     SETTINGS_DOCTYPES_TO_SCAN           : "Space-separated list of file types to scan for citations",
+    SETTINGS_CITESTR_SEPARATOR          : "Cite keys separator",
     SETTINGS_ITEMS_HAVING_BIBTEX_PREFIX : "Only Show Items having BibTeX Key"
 });

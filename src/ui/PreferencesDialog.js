@@ -5,13 +5,11 @@ define(function (require, exports, module) {
 
     // Brackets modules
     var Dialogs         = brackets.getModule("widgets/Dialogs");
-    var prefs           = brackets.getModule("preferences/PreferencesManager")
-                                  .getExtensionPrefs("baig.zoteroplugin");
 
     // Local modules
-    var defaultSettings = JSON.parse(require("text!settings.json"));
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
+    var Prefs           = require("src/Preferences");
     var S               = require("strings");
 
     // Templates and resources
@@ -20,19 +18,6 @@ define(function (require, exports, module) {
     // private variables
     var _currentSettings = {};
     var _newSettings     = {};
-
-    /**
-     * Constructs an object representation of all the preferences.
-     * @param   {String[]} prefNames An array of strings containing preference IDs.
-     * @returns {Object}   An object containing preferences as key value pairs.
-     */
-    function _objectify(prefNames) {
-        var obj = {};
-        prefNames.forEach(function (prefName) {
-            obj[prefName] = prefs.get(prefName);
-        });
-        return obj;
-    }
 
     /**
      * Event Handler responding to `change` and `input` events
@@ -61,7 +46,7 @@ define(function (require, exports, module) {
      */
     function _applySettings(settings) {
         Object.keys(settings).forEach(function (key) {
-            prefs.set(key, settings[key]);
+            Prefs.set(key, settings[key]);
             _currentSettings[key] = settings[key];
         });
     }
@@ -104,7 +89,7 @@ define(function (require, exports, module) {
                     break;
                 case "defaults":
                     // Applying the default settings
-                    _applySettings(defaultSettings);
+                    _applySettings(Prefs.objectify({defaults: true}));
                     // Resetting the new settings object
                     _newSettings = {};
                     break;
@@ -117,7 +102,7 @@ define(function (require, exports, module) {
      * @private
      */
     function _init() {
-        _currentSettings = _objectify(Object.keys(defaultSettings));
+        _currentSettings = Prefs.objectify();
         Channel.Extension.comply(Events.CMD_SHOW_SETTINGS, _handleShowPreferencesDialog);
     }
 
