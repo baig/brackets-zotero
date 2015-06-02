@@ -7,12 +7,16 @@ define(function (require, exports, module) {
     var prefs              = PreferencesManager.getExtensionPrefs("baig.zoteroplugin");
 
     // Defining preferences
-    prefs.definePreference("itemsWithBibtexKeyOnly", "boolean", true);
-    prefs.definePreference("extraFieldPrefix",       "string",  "bibtex:");
-    prefs.definePreference("docTypesToScan",         "string",  "md txt");
-    prefs.definePreference("bibFolderName",          "string",  "brackets-zotero-bibtex-DB");
-    prefs.definePreference("scanInterval",           "number",  10000);
-    prefs.definePreference("bibFileName",            "string",  "refs.bib");
+    prefs.definePreference("itemsWithBibtexKeyOnly",   "boolean", true);
+    prefs.definePreference("extraFieldPrefix",         "string",  "bibtex:");
+    prefs.definePreference("docTypesToScan",           "string",  "md txt");
+    prefs.definePreference("bibFolderName",            "string",  "brackets-zotero-bibtex-DB");
+    prefs.definePreference("scanInterval",             "number",  10000);
+    prefs.definePreference("bibFileName",              "string",  "refs.bib");
+    prefs.definePreference("citeKeysOpeningDelimiter", "string",  "[");
+    prefs.definePreference("citeKeysClosingDelimiter", "string",  "]");
+    prefs.definePreference("citeKeysSeparator",        "string",  "; ");
+    prefs.definePreference("citeKeyPrefix",            "string",  "@");
 
     // Saving preferences
     prefs.save();

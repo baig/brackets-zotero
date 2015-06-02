@@ -262,18 +262,18 @@ define(function (require, exports, module) {
 
     function _generateCiteString(keys) {
         // pandoc style
-        var citeString = "[";
+        var citeString = Prefs.get("citeKeysOpeningDelimiter");
         if (keys.length === 1) {
-            citeString += "@" + keys[0];
+            citeString += Prefs.get("citeKeyPrefix") + keys[0];
         } else {
             _.forEach(keys, function (bibtexKey, idx) {
-                citeString += "@" + bibtexKey;
+                citeString += Prefs.get("citeKeyPrefix") + bibtexKey;
                 if (idx !== keys.length - 1) {
-                    citeString += "; ";
+                    citeString += Prefs.get("citeKeysSeparator");
                 }
             });
         }
-        citeString += "]";
+        citeString += Prefs.get("citeKeysClosingDelimiter");
         return citeString;
     }
 

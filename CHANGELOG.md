@@ -76,6 +76,8 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Moved the extension intialization code to `src/Main.js`.
 - Now using Bracket's Preference Manager to store preferences
   instead of settings.json.
+- Cite string opening closing delimiter, prefix, and separator
+  now user configurable.
 
 ### Removed
 - Removed `utils/EventTranslator.js`. This module's
