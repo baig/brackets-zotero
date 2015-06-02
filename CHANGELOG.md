@@ -22,6 +22,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ### Fixed
 - Multiple Error Dialogs popping up when Zotero not running.
+- Changed _.rest to _.drop (fixes issue #2)
 
 ### Removed
 - Removed notification about finding existing citations.

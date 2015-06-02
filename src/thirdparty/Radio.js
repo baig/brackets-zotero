@@ -203,7 +203,7 @@ define(function (require, exports, module) {
 
         // Log information about the channel and event
         log: function (channelName, eventName) {
-            var args = _.rest(arguments, 2);
+            var args = _.drop(arguments, 2);
             console.log('[' + channelName + '] "' + eventName + '"', args);
         },
 
