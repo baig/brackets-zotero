@@ -4,6 +4,10 @@ Add In-Text Citations and Bibliographies in Scholarly Markdown documents in Brac
 
 ![Demo][gif]
 
+## Translation Credits
+
+- German translation by [Sebastian Herrmann]
+
 ## License
 
 Copyright &copy; 2015 [Wasif Hasan Baig][4]
@@ -19,4 +23,5 @@ Source code is released under the Terms and Conditions of [MIT License][5]. Plea
 [5]: http://opensource.org/licenses/MIT
 [6]: https://github.com/baig/brackets-zotero/blob/master/LICENSE.txt
 [7]: http://baig.github.io/brackets-zotero/
+[Sebastian Herrmann]: https://github.com/herrherrmann
 
