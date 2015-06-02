@@ -19,6 +19,10 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Moved Command IDs from `src/utils/Constants` to `src/utils/Events`.
 - Annotated and cleaned up `src/ui/Panel`.
 - Simplified and cleaned up code in multiple places.
+- Now using Bracket's Preference Manager to store preferences
+  instead of settings.json.
+- Cite string opening closing delimiter, prefix, and separator
+  now user configurable.
 
 ### Fixed
 - Multiple Error Dialogs popping up when Zotero not running.
@@ -74,10 +78,6 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 - Contents of the toolbar pushed little bit to the right
   to align with the left edge of the Panel View.
 - Moved the extension intialization code to `src/Main.js`.
-- Now using Bracket's Preference Manager to store preferences
-  instead of settings.json.
-- Cite string opening closing delimiter, prefix, and separator
-  now user configurable.
 
 ### Removed
 - Removed `utils/EventTranslator.js`. This module's
