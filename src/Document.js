@@ -18,7 +18,6 @@ define(function (require, exports, module) {
     var _               = brackets.getModule("thirdparty/lodash");
 
     // Local Modules
-    var settings        = JSON.parse(require("text!settings.json"));
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
     var Prefs           = require("src/Preferences");

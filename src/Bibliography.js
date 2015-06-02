@@ -8,7 +8,6 @@ define(function (require, exports, module) {
     var FileSystem      = brackets.getModule("filesystem/FileSystem");
 
     // Local modules
-    var settings        = JSON.parse(require("text!settings.json"));
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
     var Prefs            = require("src/Preferences");

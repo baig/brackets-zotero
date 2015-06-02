@@ -19,7 +19,6 @@ define(function (require, exports, module) {
 
     // Local modules
     var BibtexParser    = require("src/thirdparty/BibtexParser");
-    var settings        = JSON.parse(require("text!settings.json"));
     var Channel         = require("src/utils/Channel");
     var Events          = require("src/utils/Events");
     var Utils           = require("src/utils/Utils");

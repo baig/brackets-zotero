@@ -30,6 +30,7 @@ The subsection are to be interpreted as defined [here](http://keepachangelog.com
 
 ### Removed
 - Removed notification about finding existing citations.
+- Removed settings.json and its references.
 
 ## [0.1.6] - 2015-03-19
 
